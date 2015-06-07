@@ -1,0 +1,10 @@
+/env
+.Python
+.project
+.pydevproject
+/.pydevproject
+.pydevproject.*
+.settings
+*.pyc
+.idea
+.idea/*
