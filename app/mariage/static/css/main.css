@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/* general */
+body {
+	margin: 0;
+	background: white;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+#content {
+	padding: 40px 0;
+}
+
+
+/* Header */
+nav {
+	margin: 10px auto;
+}
+
+nav a:link, nav a:visited {
+	display: inline-block;
+	margin: 0;
+	padding: 10px 1%;
+	background: lightgray;
+	width: 14%;
+	text-align: center;
+}
+
+nav a:hover {
+	background: gray;
+}

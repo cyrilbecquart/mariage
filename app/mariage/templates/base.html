@@ -1,0 +1,48 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}" >
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="referrer" content="unsafe-URL">
+<meta name="robots" content="noindex,nofollow"/>
+
+<!--favicons-->
+<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
+
+<!--meta-->
+<title>{% block title %}Cyril & GG{% endblock title %} - Buzzcar</title>
+<meta name="description" content="{% block metadata-description %}Le site du mariage de Cyril et Géraldine{% endblock metadata-description %}"/>
+
+{% include 'styles.html' %}
+
+</head>
+
+<body id="body">
+
+    {% block wrapper %}
+        <div id="wrapper">
+            <header id="header">
+                {% block header %}{% include "header.html" %}{% endblock header %}
+            </header>
+            {% block wrapper-content %}
+                <div id="content">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            {% endblock wrapper-content %}
+        </div>
+
+        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
+    {% endblock wrapper %}
+
+
+    {% block assets-scripts %}
+        {% include 'scripts.html' %}
+    {% endblock %}
+
+</body>
+
+</html>
