@@ -1,5 +1,6 @@
 from fabric.api import local
 
+
 def prepare_deployment(branch_name):
     local('python manage.py test mariage')
     local('git add -p && git commit')

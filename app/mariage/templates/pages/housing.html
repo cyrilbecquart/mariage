@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Où loger ?{% endblock title %}
+
+{% block content %}
+    <h1>Où loger ?</h1>
+    
+    <table>    	
+    {% for hotel in hotels %}
+    <tr>
+    	<td>{{ hotel.name }}</td>
+    	<td>{{ hotel.description }}</td>
+    	<td>{{ hotel.website }}</td>
+    	<td>{{ hotel.address }}</td>
+    	<td>{{ hotel.price_range }}</td>
+    	
+    </tr>
+    {% empty %}
+    <tr><td>Aucun hotel répertorié.</td></tr>
+    {% endfor %}  
+    </table>
+
+{% endblock content %}
