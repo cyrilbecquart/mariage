@@ -6,6 +6,10 @@ class HomePageView(TemplateView):
 
     template_name = "pages/home.html"
 
+class TestPageView(TemplateView):
+
+    template_name = "test.html"
+
 class WherePageView(TemplateView):
 
     template_name = "pages/where.html"

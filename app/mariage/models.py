@@ -88,8 +88,16 @@ class Hotel(AuditedModel):
 
     ''' General info '''
     name = models.CharField(_(u'name'), null=True, max_length=100)
+    email = models.EmailField(_(u'email'), null=True, blank=True, max_length=100)
     phone = models.CharField(_(u'phone'), null=True, blank=True, max_length=100)
     description = models.CharField(_(u'description'), null=True, blank=True, max_length=2048)
     website = models.URLField(_(u'website'), null=True, blank=True, max_length=1024)
     price_range = models.CharField(_(u'price range'), null=True, blank=True, max_length=100)
     address = models.CharField(_(u'address'), null=True, blank=True, max_length=1024)
+    latitude = models.FloatField(_(u'latitude'), blank=True, null=True)
+    longitude = models.FloatField(_(u'longitude'), blank=True, null=True)
+    
+    def __unicode__(self):
+        return "%(name)s" % self.__dict__
+    
+        

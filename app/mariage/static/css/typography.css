@@ -61,3 +61,14 @@ p a:link, p a:visited {
 	color: #0e9aec;
 	text-decoration: none;
 }
+
+/* General */
+.border-bottom {
+	border-bottom: solid 1px #959595;
+}
+.small {
+	font-size: 90%;
+}
+table {
+	border-collapse: collapse;
+}

@@ -33,3 +33,31 @@ nav a:link, nav a:visited {
 nav a:hover {
 	background: gray;
 }
+
+/* Housing */
+.hotels {
+	width: 100%;
+	vertical-align: top;
+	text-align: left;
+}
+.hotels th {
+	border-top: solid 1px #959595;
+	border-bottom: solid 1px #959595;
+}
+.hotels td, 
+.hotels th {
+	padding: 5px;
+}
+.hotels td:first-child, 
+.hotels th:first-child {
+	padding-left: 0;
+}
+.hotels td:last-child,
+.hotels th:last-child {
+	padding-right: 0;
+}
+#hotelMap {
+	width: 80%;
+	height: 300px;
+	margin: 40px 10%;
+}
