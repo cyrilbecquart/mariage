@@ -58,3 +58,12 @@
     <div id="hotelMap"></div>
 
 {% endblock content %}
+
+{% block additionnal-scripts %}
+<script type="text/javascript">
+	 $(document).ready(function ($) {
+	 	initHotelMap();
+	 });
+</script>
+{% endblock additionnal-scripts %}
+

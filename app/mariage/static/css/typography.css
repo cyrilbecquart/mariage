@@ -47,6 +47,9 @@ ul {
 img, a img {
 	border: 0;
 }
+.center {
+	text-align: center;
+}
 
 /* Links */
 a:link, a:visited, a.blue:link, a.blue:visited {
@@ -71,4 +74,32 @@ p a:link, p a:visited {
 }
 table {
 	border-collapse: collapse;
+}
+.top-20 {
+	margin-top: 20px;
+}
+.top-40 {
+	margin-top: 40px;
+}
+.right-20 {
+	margin-right: 20px;
+}
+
+/* Button */
+.action, .action:link, .action:visited {
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: blue;
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 20px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	color: #fff;
+	cursor: pointer;
+}
+.action.green {
+	background-color: green;
 }

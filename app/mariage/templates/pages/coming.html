@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Où ?{% endblock title %}
+
+{% block content %}
+    <div id="locationsMap"></div>
+
+    <h2>Où cela se passe-t-il ?</h2>    
+    
+    <h3>Cérémonie</h3>
+    <img class="locationIcon" src="{{ STATIC_URL}}img/church-icon-green.png" />
+    <p>
+    	Eglise : Notre Dame à Ménestreau en villette
+    	<br/><span class="small">GPS : 
+    		<a href="https://goo.gl/maps/xo6AriyY4h72" target="blank">47.699065, 2.021684</a></span>
+    </p>
+    
+    
+    <h3>Réception et soirée</h3>
+    <img class="locationIcon" src="{{ STATIC_URL}}img/castle-icon-blue.png" />
+    <p>
+    	Chateau de la Ferté Saint Aubin
+    	<br/><span class="small">GPS : 
+    		<a href="https://goo.gl/maps/rVGYU5X48c62" target="blank">47.726278, 1.940727</a></span>
+	</p>
+    
+    <h3>Brunch le dimanche</h3>
+    <img class="locationIcon" src="{{ STATIC_URL}}img/home-icon-red.png" />
+    <p>
+    	Pavillon du Ramier à Viglain,
+    	<br/>Chez les parents de Géraldine
+    	<br/><span class="small">GPS : 
+    		<a href="https://goo.gl/maps/KZHN7tixs6Q2" target="blank">47.761590, 2.271166</a></span>
+    </p>
+    
+    
+    <h2 class="top-40">Comment venir ?</h2>
+	
+	<div class="clearfix">
+		<div class="third">
+			<h3>En voiture</h3>
+			<p><a href="https://goo.gl/maps/cEfhU3n18mo">De Paris</a>, 2 heures par l'A10, direction Orléans</p>
+			<p><a href="https://goo.gl/maps/Ed1n6rMqwJ32">De Lille</a>, 5 heures par l'A1 jusque Paris, puis A10 direction Orléans</p>
+			<p><b>Louer une voiture :</b>
+				<br/><a href="https://www.drivy.com/search?address=Gare+SNCF+de+Fleury+Les+Aubrais%2C+Fleury-les-Aubrais%2C+France&latitude=47.927082&longitude=1.9067219999999452&page=1&city_display_name=Les+Aubrais&country_scope=FR&start_date=2016-07-16&start_time=am&end_date=2016-07-17&end_time=pm&distance=200">
+				Entre particulier sur Drivy</a> 
+				<br/><span class="small">(on ne renie pas 4 ans dans le métier ;) )</span>
+			<br/><a href="https://www.sixt.fr/location-voiture/france/orleans/fleury-les-aubrais">Agence Sixt à Fleury les Aubrais</a>
+		</div>
+		<div class="third">
+			<h3>En train</h3>
+			<p>Arrivée en gare "Les Aubrais".
+				<br/>Il y a quelques tgv directs de Lille, sinon il faut passer par Paris.</p>
+			<p>1h en TER direct depuis Paris Austerlitz.</p>
+			<p><strong>Prévoir de louer une voiture à Orléans.</strong></p>
+		</div>
+		<div class="third">
+			<h3>En avion</h3>
+			<p>Si si. Je sais que certains ont prévu de venir en avion.
+				<br/><a href="https://goo.gl/maps/RhUKEWFjmp92">L'aéroport du Loiret - Orléans</a> est très acceuillant
+			</p>
+			<p><strong>Pas de location de voiture à l'aéroport, prévoir un covoiturage.</strong></p>
+		</div>
+	</div>
+		
+	<h3 class="clear">En covoiturage</h3>
+	
+	<table class="hotels">
+		<tr class="border-bottom">
+			<th>Qui ?</th>
+			<th>Ville de départ</th>
+			<th>Rôle</th>
+			<th>Nb de places</th>
+			<th>Contact</th>
+		</tr>
+	</table>
+	
+	<p class="center top-20">
+		<a class="action right-20" href="#">Proposer un covoiturage</a>
+		<a class="action green" href="#">Je cherche un covoiturage</a>
+	</p>
+	
+{% endblock content %}
+
+{% block additionnal-scripts %}
+<script type="text/javascript">
+	 $(document).ready(function ($) {
+	 	initLocationsMap();
+	 });
+</script>
+{% endblock additionnal-scripts %}

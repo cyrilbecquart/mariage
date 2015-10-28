@@ -33,15 +33,16 @@
                     {% endblock content %}
                 </div>
             {% endblock wrapper-content %}
+	
+	        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
         </div>
-
-        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
     {% endblock wrapper %}
 
 
     {% block assets-scripts %}
         {% include 'scripts.html' %}
     {% endblock %}
+    {% block additionnal-scripts %}{% endblock additionnal-scripts %}
 
 </body>
 

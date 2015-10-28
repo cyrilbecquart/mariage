@@ -12,9 +12,39 @@ body {
 }
 
 #content {
-	padding: 40px 0;
+	padding: 40px 0 60px;
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clear {
+	clear: both;
+}
+.third {
+	width: 29%;
+	padding: 0 2%;
+	float: left;
+	border-right: solid 1px #959595;
+}
+.third:last-child {
+	border: none;
+	padding-right: 0;
+}
+.third:first-child {
+	padding-left:0;
+}
 
 /* Header */
 nav {
@@ -60,4 +90,21 @@ nav a:hover {
 	width: 80%;
 	height: 300px;
 	margin: 40px 10%;
+	border: solid 1px #959595;
+}
+
+/* Coming */
+#locationsMap {
+	float: right;
+	width: 50%;
+	height: 400px;
+	border: solid 1px #959595;
+	margin-top: 20px;
+}
+.locationIcon {
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+    margin-top: 0px;
 }

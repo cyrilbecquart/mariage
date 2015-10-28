@@ -10,9 +10,9 @@ class TestPageView(TemplateView):
 
     template_name = "test.html"
 
-class WherePageView(TemplateView):
+class ComingPageView(TemplateView):
 
-    template_name = "pages/where.html"
+    template_name = "pages/coming.html"
 
 class HousingPageView(TemplateView):
 
