@@ -3,6 +3,7 @@ from contextlib import contextmanager
 
 from django.contrib.auth.models import User, UserManager
 from django.core.exceptions import PermissionDenied
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
@@ -72,6 +73,7 @@ class AuditedModel(models.Model):
         else:
             return self.modified_date
 
+
 class UserProfile(AuditedModel):
     # Turn the settings LANGUAGES into a translatable list
     #LANGUAGES = map(lambda t: (t[0], _(t[1])), list(settings.LANGUAGES))
@@ -100,4 +102,25 @@ class Hotel(AuditedModel):
     def __unicode__(self):
         return "%(name)s" % self.__dict__
     
-        
+class Carpooling(AuditedModel):
+
+    ROLE_CHOICES = (
+        ('DR',_(u'driver')), 
+        ('PA', _(u'passenger'))
+    )
+    
+    name = models.CharField(_(u'name'), null=True, max_length=100)
+    email = models.EmailField(_(u'email'), null=True, blank=True, max_length=100)
+    phone = models.CharField(_(u'phone'), null=True, blank=True, max_length=100)
+    role = models.CharField(_(u'role'), null=True, max_length=2,
+                            choices=ROLE_CHOICES,
+                            default='DR',
+                            help_text=_(u'Do you have a car or are you looking for one?'))
+    places = models.IntegerField(_(u'places'), null=True, blank=True, 
+                                 validators=[MaxValueValidator(9), MinValueValidator(1)],
+                                 help_text=_(u'Number of places available or number of seats you or looking for.'))
+    departure = models.CharField(_(u'departure town'), null=True, blank=True, max_length=100)
+    
+    def __unicode__(self):
+        return _(u"covoiturage avec %(name)s depuis %(departure)s") % self.__dict__
+         

@@ -70,14 +70,25 @@
 			<th>Qui ?</th>
 			<th>Ville de départ</th>
 			<th>Rôle</th>
-			<th>Nb de places</th>
+			<th align="center">Nb de places</th>
 			<th>Contact</th>
 		</tr>
+		{% for c in carpoolings %}
+		<tr class="border-bottom">
+			<td>{{ c.name }}</td>
+			<td>{{ c.departure }}</td>
+			<td>{{ c.get_role_display }}</td>
+			<td align="center">{{ c.places }}</td>
+			<td><a href="mailto:{{ c.email }}">{{ c.email }}</a>
+				{% if c.email and c.phone %}<br/>{% endif %}
+				{{ c.phone }}</td>
+		</tr>
+		{% endfor %}
 	</table>
 	
 	<p class="center top-20">
-		<a class="action right-20" href="#">Proposer un covoiturage</a>
-		<a class="action green" href="#">Je cherche un covoiturage</a>
+		<a class="action right-20" href="{% url 'add_carpooling' %}?role=DR">Proposer un covoiturage</a>
+		<a class="action green" href="{% url 'add_carpooling' %}?role=PA">Je cherche un covoiturage</a>
 	</p>
 	
 {% endblock content %}

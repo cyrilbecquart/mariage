@@ -1,0 +1,25 @@
+{% load custom_form_tags %}
+{% extends 'base.html' %}
+
+{% block title %}Nouveau covoiturage{% endblock title %}
+
+{% block content %}
+<form action="" method="post" class="smallForm">
+	<h1>Proposer un covoiturage</h1>
+	{% csrf_token %}
+	<div class="error clearfix clear">{{ form.non_field_errors  }}</div>
+    {% for f in form.contact_group %}
+	    {% if f.errors %}<span class"small red">{{ f.errors }}</span>{% endif %}
+	    {{ f.label_tag }}
+	    {{ f }}
+    {% endfor %}
+    <hr>
+    {% for f in form.travel_group %}
+	    {% if f.errors %}<span class"small red">{{ f.errors }}</span>{% endif %}
+	    {{ f.label_tag }}
+	    <span {% if f|is_radio %}class="radio"{% endif %}>{{ f }}</span>
+    {% endfor %}
+    <hr>
+    <input type="submit" value="Enregistrer" class="action green" />
+</form>
+{% endblock content %}

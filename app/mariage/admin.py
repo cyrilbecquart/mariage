@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.mariage.models import Hotel
+from app.mariage.models import Hotel, Carpooling
 from django import forms
 
 
@@ -20,4 +20,11 @@ class HotelAdmin(admin.ModelAdmin):
     readonly_fields = ('created_by', 'modified_by')
     #list_filter = ('vehicle__active_p', 'administrative_area_one')
 
+class CarpoolingAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'role', 'places', 'departure',)
+    #search_fields = ()
+    readonly_fields = ('created_by', 'modified_by')
+    #list_filter = ('vehicle__active_p', 'administrative_area_one')
+
 admin.site.register(Hotel, HotelAdmin)
+admin.site.register(Carpooling, CarpoolingAdmin)

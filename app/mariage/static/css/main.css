@@ -108,3 +108,49 @@ nav a:hover {
 	margin-right: 10px;
     margin-top: 0px;
 }
+
+/* Forms */
+.smallForm {
+	max-width: 400px;
+	margin: 20px auto;
+}
+.smallForm label {
+	display: block;
+	padding-right: 10px;
+}
+.smallForm input[type='text'], 
+.smallForm input[type='email'],
+.smallForm input[type='select'],
+.smallForm select {
+	display: block;
+	padding: 10px 2%;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	border : solid 1px #959595;
+	color: black;
+}
+.smallForm input[type='text'],
+.smallForm input[type='email'] {
+	width: 96%;
+}
+.smallForm input[type='submit'].action {
+	padding: 10px 2%;
+	display: block;
+	width: 100%;
+}
+.smallForm ul {
+	list-style-type: none;
+	margin-top: 0;
+}
+.smallForm li {
+	display: inline-block;
+	padding-right: 20px;
+}
+.error {
+	color: red;
+}
+.smallForm .errorlist {
+	color: red;
+	margin-bottom: 0;
+	float: right;
+}
