@@ -1,24 +1,41 @@
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import TemplateView, TemplateResponseMixin
 from django.views.generic.edit import FormView
 from app.mariage.models import Hotel, Carpooling
 from app.mariage.forms import CarpoolingAddForm
 
 
-""" pages views """
 
-class HomePageView(TemplateView):
+class LoginRequiredMixin(object):
+    @classmethod
+    def as_view(cls, **initkwargs):
+        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
+        return login_required(view)
+
+
+""" pages views """
+class HomePageView(LoginRequiredMixin, TemplateView):
 
     template_name = "pages/home.html"
 
 
-class TestPageView(TemplateView):
+class TestPageView(LoginRequiredMixin, TemplateView):
 
     template_name = "test.html"
 
 
-class ComingPageView(TemplateView):
+class PlanningPageView(LoginRequiredMixin, TemplateView):
+
+    template_name = "pages/planning.html"
+
+
+class ComingPageView(LoginRequiredMixin, TemplateView):
 
     template_name = "pages/coming.html"
 
@@ -28,7 +45,7 @@ class ComingPageView(TemplateView):
         return context    
 
 
-class HousingPageView(TemplateView):
+class HousingPageView(LoginRequiredMixin, TemplateView):
 
     template_name = "pages/housing.html"
     
@@ -38,9 +55,15 @@ class HousingPageView(TemplateView):
         return context
 
 
+class CeremonyPageView(LoginRequiredMixin, TemplateView):
+
+    template_name = "pages/ceremony.html"
+
+
+
 """ forms views """
 
-class CarpoolingFormView(FormView):
+class CarpoolingFormView(LoginRequiredMixin, FormView):
     template_name = 'forms/carpooling.html'
     form_class = CarpoolingAddForm
     success_url = reverse_lazy('coming')

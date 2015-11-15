@@ -49,6 +49,7 @@ body {
 /* Header */
 nav {
 	margin: 10px auto;
+	text-align: right;
 }
 
 nav a:link, nav a:visited {
@@ -56,7 +57,7 @@ nav a:link, nav a:visited {
 	margin: 0;
 	padding: 10px 1%;
 	background: lightgray;
-	width: 14%;
+	width: 10%;
 	text-align: center;
 }
 
@@ -64,6 +65,11 @@ nav a:hover {
 	background: gray;
 }
 
+/* Home */
+.home-banner {
+	max-width: 400px;
+	margin: 0 auto 20px;
+}
 /* Housing */
 .hotels {
 	width: 100%;
@@ -111,14 +117,13 @@ nav a:hover {
 
 /* Forms */
 .smallForm {
-	max-width: 400px;
-	margin: 20px auto;
 }
 .smallForm label {
 	display: block;
 	padding-right: 10px;
 }
-.smallForm input[type='text'], 
+.smallForm input[type='text'],
+.smallForm input[type='password'], 
 .smallForm input[type='email'],
 .smallForm input[type='select'],
 .smallForm select {
@@ -130,6 +135,7 @@ nav a:hover {
 	color: black;
 }
 .smallForm input[type='text'],
+.smallForm input[type='password'], 
 .smallForm input[type='email'] {
 	width: 96%;
 }
@@ -138,11 +144,11 @@ nav a:hover {
 	display: block;
 	width: 100%;
 }
-.smallForm ul {
+.smallForm .radio ul {
 	list-style-type: none;
 	margin-top: 0;
 }
-.smallForm li {
+.smallForm .radio li {
 	display: inline-block;
 	padding-right: 20px;
 }
@@ -151,6 +157,53 @@ nav a:hover {
 }
 .smallForm .errorlist {
 	color: red;
-	margin-bottom: 0;
+	margin: 0;
 	float: right;
+	list-style-type: none;
+}
+
+/* boostrap edits */
+.tab-pane {
+	border: solid 1px #111;
+	border-top: none;
+	padding: 20px;
+	border-radius: 0 0 10px 10px;
+}
+.nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid #111;
+    border-radius: 10px 10px 0 0;
+    padding: 30px 15px;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover {
+	border-color: #111;
+	border-bottom-color: #fff;
+}
+
+/* Planning */
+.planning-img {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	width: 120px;
+	height: auto;
+}
+.planning-img.landscape {
+	width: auto;
+	height: 153px;
+}
+.planning-img.right {
+	float:right;
+	margin: 0 0 10px 20px;
+}
+
+/* login page */
+.login-img {
+	float: right;
+	width: 400px;
+}
+
+@media (max-width: 1000px) {
+	#wrapper {
+		margin: 0 10px;
+	}
 }

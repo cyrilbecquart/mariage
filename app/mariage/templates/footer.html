@@ -1,3 +1,8 @@
+{% load i18n %}
 <hr>
 <p class="center">Rendez-vous le 27 août 2016</p>
-<p class="center"><a href="mailto:cyril.geraldine.2016@gmail.com">Ecrivez-nous !</a></p>
+<p class="center"><a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">Ecrivez-nous !</a></p>
+{% comment %}
+<p class="center"><a href="{% url 'logout' %}">{% trans "Logout" %}</a></p>
+{% endcomment %}
+
