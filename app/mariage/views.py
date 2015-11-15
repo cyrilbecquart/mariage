@@ -1,11 +1,8 @@
-from django.conf import settings
-from django.contrib import messages
-from django.contrib.auth import login, authenticate
+#from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
-from django.utils.translation import ugettext_lazy as _
-from django.views.generic.base import TemplateView, TemplateResponseMixin
+from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from app.mariage.models import Hotel, Carpooling
 from app.mariage.forms import CarpoolingAddForm
@@ -58,6 +55,16 @@ class HousingPageView(LoginRequiredMixin, TemplateView):
 class CeremonyPageView(LoginRequiredMixin, TemplateView):
 
     template_name = "pages/ceremony.html"
+
+
+class VoyagePageView(LoginRequiredMixin, TemplateView):
+
+    template_name = "pages/voyage.html"
+
+
+class VisitPageView(LoginRequiredMixin, TemplateView):
+
+    template_name = "pages/visit.html"
 
 
 

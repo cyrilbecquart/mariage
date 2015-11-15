@@ -30,8 +30,8 @@ function getLocations() {
 	var hotelLocations = [];
 	for ( i = 1; $('#hotel' + i).length > 0; i++) {
 		hotelLocations.push([i.toString(), {
-			lat : parseFloat($('#hotel' + i).attr('data-lat')),
-			lng : parseFloat($('#hotel' + i).attr('data-lng'))
+			lat : parseFloat($('#hotel' + i).attr('data-lat').replace(',','.')),
+			lng : parseFloat($('#hotel' + i).attr('data-lng').replace(',','.'))
 		}]);
 	}
 	return hotelLocations;

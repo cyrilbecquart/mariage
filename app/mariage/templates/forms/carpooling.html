@@ -4,7 +4,7 @@
 {% block title %}Nouveau covoiturage{% endblock title %}
 
 {% block content %}
-<form action="" method="post" class="smallForm centered">
+<form action="" method="post" class="smallForm centered max400">
 	{% if request.GET.role == 'DR' %}
 		<h1>Proposer un covoiturage</h1>
 	{% else %}

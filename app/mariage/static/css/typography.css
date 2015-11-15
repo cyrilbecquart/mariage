@@ -56,15 +56,15 @@ img, a img {
 
 /* Links */
 a:link, a:visited, a.blue:link, a.blue:visited {
-	color: #0e9aec;
+	color: #02789C;
 	text-decoration: none;
 }
 a:hover, a.blue:hover {
 	text-decoration: none;
-	color: #0e9aec;
+	color: #02789C;
 }
 p a:link, p a:visited {
-	color: #0e9aec;
+	color: #02789C;
 	text-decoration: none;
 }
 
@@ -109,6 +109,10 @@ table {
 .centered {
 	margin: 20px auto;
 }
+.max400 {
+    max-width: 400px;
+}
+
 /* Button */
 .action, .action:link, .action:visited, input[type='submit'].action {
 	padding: 10px 20px;

@@ -202,6 +202,17 @@ nav a:hover {
 	width: 400px;
 }
 
+/* ceremony */
+.songs {
+	border-top: solid 1px #111;
+	border-bottom: solid 1px #111;
+	margin-top: 40px;
+}
+.songs td {
+	vertical-align: middle;
+	text-align: center;
+}
+
 @media (max-width: 1000px) {
 	#wrapper {
 		margin: 0 10px;
