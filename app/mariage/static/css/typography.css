@@ -7,7 +7,7 @@
 }
 body {
 	font-family: "proxima-nova", "Arial", sans-serif;
-	color: #656565;
+	color: #231f20;
 	font-size:16px;
 	line-height:24px;
 }
@@ -42,7 +42,6 @@ h4 {
 	color: #231f20;
 }
 ul {
-	padding:0;
 }
 img, a img {
 	border: 0;
@@ -69,6 +68,9 @@ p a:link, p a:visited {
 }
 
 /*Colors */
+.white {
+	color: white;
+}
 .yellow {
 	color: #ffb400;
 }
@@ -78,6 +80,11 @@ p a:link, p a:visited {
 .blue {
 	color: #02789C;
 }
+.white-shadow {
+	color: white;
+	text-shadow: 0 0 10px black;
+}
+
 /* General */
 .borders {
 	border-radius: 10px;
@@ -100,6 +107,9 @@ table {
 .bottom-20 {
 	margin-bottom: 20px;
 }
+.bottom-60 {
+	margin-bottom: 60px;
+}
 .top-40 {
 	margin-top: 40px;
 }
@@ -114,9 +124,12 @@ table {
 }
 
 /* Button */
-.action, .action:link, .action:visited, input[type='submit'].action {
+.action, 
+.action:link, 
+.action:visited, 
+input[type='submit'].action {
 	padding: 10px 20px;
-	border-radius: 5px;
+	border-radius: 3px;
 	background-color: #ffb400;
 	text-shadow: none;
 	font-weight: bold;
@@ -129,7 +142,12 @@ table {
 	cursor: pointer;
 	border: 0;
 }
+.action:hover, 
+input[type='submit'].action:hover {
+	background-color: #d89800;
+}
 .action.snd,
-.action:visited.snd, input[type='submit'].action.snd {
+.action:visited.snd, 
+input[type='submit'].action.snd {
 	background-color: #02789C;
 }

@@ -23,21 +23,22 @@
 
 <body id="body">
 
-    {% block wrapper %}
+    <header id="header">
+        {% block header %}{% include "header.html" %}{% endblock header %}
+    </header>
+    <div id="skrollr-body">        	
+    	{% block wrapper %}
         <div id="wrapper">
-            <header id="header">
-                {% block header %}{% include "header.html" %}{% endblock header %}
-            </header>
             {% block wrapper-content %}
-                <div id="content">
-                    {% block content %}
-                    {% endblock content %}
-                </div>
+            <div id="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
             {% endblock wrapper-content %}
-	
-	        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
         </div>
-    {% endblock wrapper %}
+    	{% endblock wrapper %}
+        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
+    </div>
 
 
     {% block assets-scripts %}

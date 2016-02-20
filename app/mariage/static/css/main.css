@@ -6,13 +6,17 @@ body {
 	background: white;
 }
 
-#wrapper {
+#wrapper, .wrapper {
 	margin: 0 auto;
 	max-width: 1000px;
 }
+.wrapper-small {
+	margin: 0 auto;
+	max-width: 800px;
+}
 
-#content {
-	padding: 40px 0 60px;
+#content, .content {
+	padding: 80px 0 0;
 }
 
 .clearfix:before,
@@ -48,21 +52,38 @@ body {
 
 /* Header */
 nav {
-	margin: 10px auto;
+	margin: 0 auto;
 	text-align: right;
+	padding: 10px 0;
+	position: fixed;
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 10000;
 }
 
 nav a:link, nav a:visited {
 	display: inline-block;
 	margin: 0;
-	padding: 10px 1%;
-	background: lightgray;
+	padding: 10px 1% 5px;
 	width: 10%;
 	text-align: center;
+	font-weight: bold;
+	color: #231f20;
+	border-bottom: solid 2px #02789C;
+	border-top: solid 2px #ba2c3a;
 }
 
 nav a:hover {
-	background: gray;
+	border-color: #ffb400;
+}
+nav a.yellow-border {
+	border-color: #ffb400;
+}
+nav a.logo {
+	float: left;
+	width: auto;
+	border: none;
 }
 
 /* Home */
@@ -70,6 +91,7 @@ nav a:hover {
 	max-width: 400px;
 	margin: 0 auto 20px;
 }
+
 /* Housing */
 .hotels {
 	width: 100%;
@@ -162,7 +184,7 @@ nav a:hover {
 	list-style-type: none;
 }
 
-/* boostrap edits */
+/* Boostrap edits */
 .tab-pane {
 	border: solid 1px #111;
 	border-top: none;
@@ -183,18 +205,41 @@ nav a:hover {
 .planning-img {
 	float: left;
 	margin-right: 20px;
-	margin-bottom: 10px;
-	width: 120px;
+	margin-bottom: 30px;
+	width: 200px;
 	height: auto;
 }
 .planning-img.landscape {
 	width: auto;
-	height: 153px;
+	height: 254px;
 }
 .planning-img.right {
 	float:right;
-	margin: 0 0 10px 20px;
+	margin: 0 0 30px 20px;
 }
+
+
+/* homeSlide */
+
+#slide-2 .bcg,
+#slide-4 .bcg,
+#slide-6 .bcg,
+#slide-8 .bcg,
+#slide-10 .bcg,
+#slide-12 .bcg {
+    background: none;
+    background-color: white;
+    padding: 30px 0;
+}
+#slide-1.homeSlide .bcg {background-image:url('../img/balancoire.jpg')}
+#slide-3.homeSlide .bcg {background-image:url('../img/chorale.jpg')}
+#slide-5.homeSlide .bcg {background-image:url('../img/eglise2.jpg')}
+#slide-7.homeSlide .bcg {background-image:url('../img/chateau-teaser.jpg')}
+#slide-9.homeSlide .bcg {background-image:url('../img/rock.jpg')}
+#slide-11.homeSlide .bcg {background-image:url('../img/ramier.jpg')}
+#slide-13.homeSlide .bcg {background-image:url('../img/chambord.jpg')}
+
+
 
 /* login page */
 .login-img {
@@ -212,6 +257,47 @@ nav a:hover {
 	vertical-align: middle;
 	text-align: center;
 }
+/* CeremonySlides */
+#slide-3.ceremonySlide .bcg {background-image:url('../img/deiss2.jpg')}
+
+
+/* images */
+.round-thumbnail {
+	float: left;
+	width: 100px;
+	border-radius: 50px;
+	margin-right: 40px;
+}
+
+/* Parallax */
+/* CSS */
+.hsContainer {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+}
+.hsContent {
+    max-width: 1000px;
+    margin: -150px auto 0 auto;
+    display: table-cell;
+    vertical-align: middle;
+    color: #231f20;
+    padding: 0 8%;
+    text-align: center
+}
+.bcg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
 
 @media (max-width: 1000px) {
 	#wrapper {

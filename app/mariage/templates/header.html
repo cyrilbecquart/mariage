@@ -1,9 +1,9 @@
 <nav id="nav">
-    <a href="{% url 'home' %}" class="logo">Home</a>
-    <a href="{% url 'planning' %}">Planning</a>
-    <a href="{% url 'ceremony' %}">Cérémonie</a>
-    <a href="{% url 'housing' %}">Loger</a>
-    <a href="{% url 'coming' %}">Venir</a>
-    <a href="{% url 'visit' %}">Visiter</a>
-    <a href="{% url 'voyage' %}">Voyage</a>
+    <a href="{% url 'home' %}" class="logo">Cyril & Géraldine</a>
+    <a href="{% url 'planning' %}" class="{% if 'planning' in request.resolver_match.url_name %}yellow-border{% endif %}">Planning</a>
+    <a href="{% url 'ceremony' %}" class="{% if 'ceremony' in request.resolver_match.url_name %}yellow-border{% endif %}">Cérémonie</a>
+    <a href="{% url 'housing' %}" class="{% if 'housing' in request.resolver_match.url_name %}yellow-border{% endif %}">Se Loger</a>
+    <a href="{% url 'coming' %}" class="{% if 'coming' in request.resolver_match.url_name %}yellow-border{% endif %}">Venir</a>
+    <a href="{% url 'visit' %}" class="{% if 'visit' in request.resolver_match.url_name %}yellow-border{% endif %}">Visiter</a>
+    <a href="{% url 'voyage' %}" class="{% if 'voyage' in request.resolver_match.url_name %}yellow-border{% endif %}">Voyage</a>
 </nav>

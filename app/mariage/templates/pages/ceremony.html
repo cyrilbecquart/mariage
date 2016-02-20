@@ -1,37 +1,62 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <img src="{{ STATIC_URL }}img/ceremony-banner.png">
-    <h2>Le célébrant</h2>
-	<p>Le père Serge Gougbémon a accepté de nous marier. Il est le chef de choeur de Pic'Pulse, 
-		la chorale Gospel dans laquelle nous chantons et l'aumônier de l'association.</p>
-	<p>Serge c'est aussi un père de la congrégation des sacrés coeurs de Jésus et de Marie, dit "de Picpus" et un philosphe.
-		Il est professeur de philosophie à la Catho de Paris. Il est Béninois.</p>
-	
-	<h2>Notre Dame de Ménestreau-en-Villette</h2>
-	<p>2-3 mots sur l'église, le choix etc...</p>
-	
-	<h2>Chantons</h2>
-	<p>Nous adorons chanter. Cette année nous chantons dans 2 chorales&nbsp;: </p>
+{% block wrapper %}
+<section class="content">
+	<hr>
+	<p class="center">
+		<img src="{{ STATIC_URL }}img/alliances_petits_ronds.png">
+		<span>Quelle alliance est la plus grande ?</span>
+		<img src="{{ STATIC_URL }}img/alliances_grands_ronds.png">
+	</p>
+	<hr>
+</section>
+<section class="wrapper-small">
+	<h2 class="top-40">Le célébrant</h2>
+	<img src="{{ STATIC_URL }}img/serge.jpg" class="round-thumbnail">
+	<p>Le père Serge Gougbémon célébrera la messe. Il est le chef de choeur de Pic'Pulse, 
+		la chorale Gospel dans laquelle nous chantons.</p>
+	<p class="bottom-60">Serge c'est aussi un père de la congrégation des sacrés coeurs de Jésus et de Marie, dit "de Picpus" et un philosphe, 
+		professeur de philosophie à la Catho de Paris. Il est Béninois.</p>
+
+	<img src="{{ STATIC_URL }}img/eglise.jpg" class="planning-img right">
+	<h2 class="top-40">Notre Dame de Ménestreau-en-Villette</h2>
+	<p>Le choeur actuel de l'église date du 13ème siècle. Le clocher et la chapelle de la vierge 
+		furent ajoutée au 15ème siècle, la nef au 16ème siècle. 
+		Les derniers aggrandissements datent du 19ème siècle.
+		Ne ratez pas les fresques du 13ème siècle peintes sur le plafond du choeur, et récemment restaurées.</p>
+	<p class="bold"><br/>Rendez-vous à 15h pour la célébration.</p>
+	<p class="bold">Où dès 14h pour répéter <a href="#songs">les chants</a>.</p>
+</section>
+
+<section>
+	<img src="{{ STATIC_URL }}img/deiss3.jpg" style="width:100%;"/>
+</section>
+
+<section class="wrapper bottom-60">
+	<h2 id="songs" class="top-40">Marions-nous, en chantant</h2>
+	<p>Cette année, nous chantons dans 2 chorales&nbsp;:</p>
 	<ul>
-		<li>Pic'Pulse, un choeur Gospel de 150 choristes dont Cyril est l'un des responsables.</li>
-		<li>Le Choeur Lucien Deiss, où Géraldine a fait venir Cyril, qui enregistre un CD en février.</li>
+		<li><a href="http://reseau-picpus.com/picpulse/vous-avez-dit-picpulse" target="_blank">Pic'Pulse</a>, un choeur Gospel de 150 choristes dont Cyril est l'un des responsables.</li>
+		<li>Le Choeur Lucien Deiss, où Géraldine a fait venir Cyril, avec laquelle nous avons enregistré un CD de chants sacrés en février.</li>
 	</ul> 
 	<p>Autant dire que pour nous, la prière passe beaucoup par le chant.</p>
 	<p>Il y aura une chorale, et vous y êtes tous conviés. Et comme pour bien chanter, 
 		il faut être préparé, voici les chants, voix par voix !</p>
 		
 	<table class="hotels songs">
+		{% for song in songs %}
 		<tr>
 			<td class="yellow bold">1</td>
 			<td>Chant d'entrée</td>
 			<td class="bold">I'm so Glad</td>
-			<td><a href="#"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><br/>Partition</a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>4 voix</a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Soprano</a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Alto</a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><br/>Partition</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>4 voix</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Soprane</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Alto</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a></td>
+			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a></td>
 		</tr>
+		{% endfor %}
 	</table>
-{% endblock content %}
+</section>
+{% endblock wrapper %}
