@@ -8,7 +8,7 @@
 	{% if request.GET.role == 'DR' %}
 		<h1>Proposer un covoiturage</h1>
 	{% else %}
-		<h1>Ajouter un besoin de covoiturage</h1>
+		<h1>Ajouter une recherche de covoiturage</h1>
 	{% endif %}
 	{% csrf_token %}
 	<div class="error clearfix clear bottom-20">{{ form.non_field_errors  }}</div>
@@ -25,6 +25,6 @@
     {% endfor %}
     <hr>
     <input type="submit" value="Enregistrer" class="action" />
-    <p class="center"><a href="{% url 'coming' %}" class="center">Retour</a></p>
+    <p class="center top-20"><a href="{% url 'coming' %}#how-to-come" class="center">Retour</a></p>
 </form>
 {% endblock content %}

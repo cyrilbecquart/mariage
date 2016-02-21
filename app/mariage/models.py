@@ -98,6 +98,9 @@ class Hotel(AuditedModel):
     address = models.CharField(_(u'address'), null=True, blank=True, max_length=1024)
     latitude = models.FloatField(_(u'latitude'), blank=True, null=True)
     longitude = models.FloatField(_(u'longitude'), blank=True, null=True)
+    order = models.IntegerField(_(u'Order'), null=True, blank=True, 
+                                 validators=[MinValueValidator(1)],
+                                 help_text=_(u'Order in page'))
     
     def __unicode__(self):
         return "%(name)s" % self.__dict__
@@ -105,8 +108,8 @@ class Hotel(AuditedModel):
 class Carpooling(AuditedModel):
 
     ROLE_CHOICES = (
-        ('DR',_(u'driver')), 
-        ('PA', _(u'passenger'))
+        ('DR',_(u'Driver')), 
+        ('PA', _(u'Passenger'))
     )
     
     name = models.CharField(_(u'name'), null=True, max_length=100)
@@ -118,9 +121,27 @@ class Carpooling(AuditedModel):
                             help_text=_(u'Do you have a car or are you looking for one?'))
     places = models.IntegerField(_(u'places'), null=True, blank=True, 
                                  validators=[MaxValueValidator(9), MinValueValidator(1)],
-                                 help_text=_(u'Number of places available or number of seats you or looking for.'))
+                                 help_text=_(u'Number of places available or number of seats you are looking for.'))
     departure = models.CharField(_(u'departure town'), null=True, blank=True, max_length=100)
     
     def __unicode__(self):
         return _(u"covoiturage avec %(name)s depuis %(departure)s") % self.__dict__
-         
+
+
+class Song(AuditedModel):
+    """
+    List of songs for ceremony
+    """
+    name = models.CharField(_(u'Name'), null=True, max_length=100)
+    when = models.CharField(_(u'When'), null=True, max_length=100)
+    order = models.IntegerField(_(u'Order'), null=True, blank=True, 
+                                 validators=[MinValueValidator(1)],
+                                 help_text=_(u'Order during ceremony.'))
+    partition = models.FileField(_(u'Music sheet'), blank=True, upload_to=("songs"))
+    four_voice = models.FileField(_(u'4 voices'), blank=True, upload_to=("songs"))
+    soprane = models.FileField(_(u'soprane'), blank=True, upload_to=("songs"))
+    alto = models.FileField(_(u'alto'), blank=True, upload_to=("songs"))
+    tenor = models.FileField(_(u'tenor'), blank=True, upload_to=("songs"))
+    basse = models.FileField(_(u'basse'), blank=True, upload_to=("songs"))
+
+

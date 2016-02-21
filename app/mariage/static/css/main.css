@@ -37,45 +37,80 @@ body {
 	clear: both;
 }
 .third {
-	width: 29%;
+	width: 33%;
 	padding: 0 2%;
 	float: left;
-	border-right: solid 1px #959595;
 }
 .third:last-child {
-	border: none;
 	padding-right: 0;
 }
 .third:first-child {
 	padding-left:0;
 }
 
+.card {
+	border: solid 1px #02789C;
+	margin-bottom: 20px;
+	padding: 20px 40px;
+	border-radius: 3px;
+}
+.cdc, .cdc-6 {
+	display: inline-block;
+	width: 16.5%;
+	vertical-align: top;
+	text-align: center;
+}
+.cdc.left {
+	text-align: left;
+}
+.cdc.right {
+	text-align: right;
+}
+.cdc.cd-1 {
+	width: 100%;
+}
+.cdc.cd-2 {
+	width: 48%;
+}
+.cdc.cd-3 {
+	width: 32%;
+}
+.cdc.cd-4 {
+	width: 24%;
+}
+.cd-places {
+	line-height: 100%;
+    padding-top: 7px;
+    padding-left: 10px;
+}
 /* Header */
 nav {
 	margin: 0 auto;
 	text-align: right;
-	padding: 10px 0;
+	padding: 0;
 	position: fixed;
 	width: 100%;
-	background-color: rgb(255, 255, 255);
-	background-color: rgba(255, 255, 255, 0.9);
 	z-index: 10000;
 }
-
+nav > div {
+    margin-left: 161px;
+}
 nav a:link, nav a:visited {
 	display: inline-block;
-	margin: 0;
+	margin: 9px 0 8px;
 	padding: 10px 1% 5px;
 	width: 10%;
 	text-align: center;
-	font-weight: bold;
-	color: #231f20;
+	color: #fff;
+	/*font-weight: bold;*/
 	border-bottom: solid 2px #02789C;
 	border-top: solid 2px #ba2c3a;
+	border-color: transparent;
 }
 
 nav a:hover {
-	border-color: #ffb400;
+	border-bottom: solid 2px #ffb400;
+	border-top: solid 2px #ffb400;
 }
 nav a.yellow-border {
 	border-color: #ffb400;
@@ -84,36 +119,30 @@ nav a.logo {
 	float: left;
 	width: auto;
 	border: none;
+	padding: 0 0 0 20px;
+	margin: 0;
 }
 
 /* Home */
 .home-banner {
 	max-width: 400px;
 	margin: 0 auto 20px;
+	display: block;
+}
+.countdown {
+	width: 100%;
+	max-width: 600px;
+	margin: 40px auto;
+	border: solid 2px #02789C; /* 02789C ffb400 */
+	border-radius: 3px;
+	text-align: center;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 150%;
 }
 
 /* Housing */
-.hotels {
-	width: 100%;
-	vertical-align: top;
-	text-align: left;
-}
-.hotels th {
-	border-top: solid 1px #959595;
-	border-bottom: solid 1px #959595;
-}
-.hotels td, 
-.hotels th {
-	padding: 5px;
-}
-.hotels td:first-child, 
-.hotels th:first-child {
-	padding-left: 0;
-}
-.hotels td:last-child,
-.hotels th:last-child {
-	padding-right: 0;
-}
+
 #hotelMap {
 	width: 80%;
 	height: 300px;
@@ -134,7 +163,7 @@ nav a.logo {
 	width: 48px;
 	height: 48px;
 	margin-right: 10px;
-    margin-top: 0px;
+    margin-top: 50px;
 }
 
 /* Forms */
@@ -159,7 +188,7 @@ nav a.logo {
 .smallForm input[type='text'],
 .smallForm input[type='password'], 
 .smallForm input[type='email'] {
-	width: 96%;
+	width: 100%;
 }
 .smallForm input[type='submit'].action {
 	padding: 10px 2%;
@@ -219,7 +248,7 @@ nav a.logo {
 }
 
 
-/* homeSlide */
+/* planningSlide */
 
 #slide-2 .bcg,
 #slide-4 .bcg,
@@ -246,20 +275,44 @@ nav a.logo {
 	float: right;
 	width: 400px;
 }
-
+.login-header {
+	color: white;
+	margin: 0;
+	padding: 20px 0;
+}
 /* ceremony */
 .songs {
 	border-top: solid 1px #111;
 	border-bottom: solid 1px #111;
 	margin-top: 40px;
+	width: 100%;
 }
-.songs td {
+.songs td,
+.songs th {
 	vertical-align: middle;
 	text-align: center;
+	padding: 10px 5px;
 }
-/* CeremonySlides */
-#slide-3.ceremonySlide .bcg {background-image:url('../img/deiss2.jpg')}
+.songs td:first-child, 
+.songs th:first-child {
+	padding-left: 0;
+}
+.songs td:last-child,
+.songs th:last-child {
+	padding-right: 0;
+}
 
+/* Visit page */
+#slide-1.visitSlide .bcg {background-image:url('../img/gien.jpg')}
+#slide-3.visitSlide .bcg {background-image:url('../img/faience2.jpg')}
+#slide-5.visitSlide .bcg {background-image:url('../img/sully.jpg')}
+#slide-7.visitSlide .bcg {background-image:url('../img/sancerre.jpg')}
+#slide-9.visitSlide .bcg {background-image:url('../img/saint-benoit2.jpg')}
+#slide-11.visitSlide .bcg {background-image:url('../img/loire-velo.jpg')}
+#slide-13.visitSlide .bcg {background-image:url('../img/chambord.jpg')}
+
+/* Voyage */
+#slide-1.voyageSlide .bcg {background-image:url('../img/voyage.jpg')}
 
 /* images */
 .round-thumbnail {

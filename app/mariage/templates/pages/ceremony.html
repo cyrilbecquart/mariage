@@ -2,13 +2,11 @@
 
 {% block wrapper %}
 <section class="content">
-	<hr>
 	<p class="center">
 		<img src="{{ STATIC_URL }}img/alliances_petits_ronds.png">
-		<span>Quelle alliance est la plus grande ?</span>
+		<span class="bold">Quelle alliance est la plus grande ?</span>
 		<img src="{{ STATIC_URL }}img/alliances_grands_ronds.png">
 	</p>
-	<hr>
 </section>
 <section class="wrapper-small">
 	<h2 class="top-40">Le célébrant</h2>
@@ -42,19 +40,20 @@
 	<p>Autant dire que pour nous, la prière passe beaucoup par le chant.</p>
 	<p>Il y aura une chorale, et vous y êtes tous conviés. Et comme pour bien chanter, 
 		il faut être préparé, voici les chants, voix par voix !</p>
+	<p>Musicien et envie de jouer ? <a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">Écrivez-nous</a>.</p>
 		
 	<table class="hotels songs">
 		{% for song in songs %}
 		<tr>
-			<td class="yellow bold">1</td>
-			<td>Chant d'entrée</td>
-			<td class="bold">I'm so Glad</td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><br/>Partition</a></td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>4 voix</a></td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Soprane</a></td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Alto</a></td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a></td>
-			<td><a href="#" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a></td>
+			<td class="yellow bold">{{ song.order }}</td>
+			<td>{{ song.when }}</td>
+			<td class="bold">{{ song.name }}</td>
+			<td>{% if song.partition %}<a href="{{ song.partition.url }}" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><br/>Partition</a>{% endif %}</td>
+			<td>{% if song.four_voice %}<a href="{{ song.four_voice.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>4 voix</a>{% endif %}</td>
+			<td>{% if song.soprane %}<a href="{{ song.soprane.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Soprane</a>{% endif %}</td>
+			<td>{% if song.alto %}<a href="{{ song.alto.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Alto</a>{% endif %}</td>
+			<td>{% if song.tenor %}<a href="{{ song.tenor.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a>{% endif %}</td>
+			<td>{% if song.basse %}<a href="{{ song.basse.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a>{% endif %}</td>
 		</tr>
 		{% endfor %}
 	</table>

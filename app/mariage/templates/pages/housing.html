@@ -3,57 +3,47 @@
 {% block title %}Où loger ?{% endblock title %}
 
 {% block content %}
-    <h1>Où loger ?</h1>
+    <h1 class="center bottom-60"><span class="fa fa-hotel fa-3x red"></span><br/>Où loger ?</h1>
     
-    <table class="hotels">
-    <tr>
-    	<th></th>
-    	<th>Nom</th>
-    	<th></th>
-    	<th>Adresse</th>
-    	<th>Prix</th>
-    	
-    </tr>  	
     {% for hotel in hotels %}
-    <tr id="hotel{{ forloop.counter }}" {% if not hotel.description %} class="border-bottom"{% endif %} 
-    data-lat={{ hotel.latitude}} data-lng={{ hotel.longitude }}>
-    	<td>{{ forloop.counter }}</td>
-    	<td><strong>{{ hotel.name }}</strong></td>
-    	<td><a href="{{ hotel.website }}">Site web</a>
-    		{% if hotel.phone %}<br/>{{ hotel.phone }}{% endif %}
-    		{% if hotel.email %}<br/><a href="mailto:{{ hotel.email }}">{{ hotel.email }}</a>{% endif %}
-    	</td>
-    	<td>{{ hotel.address|linebreaksbr }}</td>
-    	<td>{{ hotel.price_range }}</td>
-    </tr>
-    {% if hotel.description %}
-    <tr class="border-bottom">
-    	<td></td>
-    	<td colspan="4" class="small">{{ hotel.description|linebreaksbr }}</td>
-    </tr>
-    {% endif %}
-    {% endfor %}  
+    <div class="card" 
+    		id="hotel{{ forloop.counter }}" 
+    		data-lat={{ hotel.latitude}} data-lng={{ hotel.longitude }}>
+    	<div class="cdc cd-2 left">
+			<span class="bold">{{ forloop.counter }} - {{ hotel.name }}</span>
+			<br/>{{ hotel.address|linebreaksbr }}
+		</div>
+		<div class="cdc cd-6 bold right"><br/>{{ hotel.price_range }}</div>
+		<div class="cdc cd-3 right">
+    		{% if hotel.phone %}{{ hotel.phone }}<br/>{% endif %}
+    		{% if hotel.email %}<a href="mailto:{{ hotel.email }}">{{ hotel.email }}</a><br/>{% endif %}
+			<a href="{{ hotel.website }}" class="action">Site web</a>
+		</div>
+		{% if hotel.description %}<div class="cdc cd-1 left small">{{ hotel.description|linebreaksbr }}</div>{% endif %}
+	</div>
+    {% endfor %} 
     
-    <tr>
-    	<td>+</td>
-    	<td><strong>Airbnb</strong></td>
-    	<td><a href="https://www.airbnb.fr/s/La-Fert%C3%A9~Saint~Aubin?checkin=27%2F08%2F2016&checkout=28%2F08%2F2016&guests=&zoom=11&search_by_map=true&sw_lat=47.61293568120306&sw_lng=1.906714587506599&ne_lat=47.862701482478926&ne_lng=2.230811267194099&ss_id=23vztdjs">
-    		Logements sur Airbnb</a></td>
-    	<td></td>
-    	<td>40 à 100 €</td>
-    </tr>
-    <tr class="border-bottom">
-    	<td></td>
-    	<td colspan="4" class="small">Logez chez l'habitant, avec tout le confort de l'hôtel, le charme en plus. 200 logements à moins de 30 min de La Ferté Saint Aubin, pour tous les budgets.</td>
-    </tr>
-    <tr class="border-bottom">
-    	<td>+</td>
-    	<td><strong>Plus d'hôtels sur Booking</strong></td>
-    	<td><a href="http://www.booking.com/searchresults.fr.html?label=gen173nr-17CAEoggJCAlhYSDNiBW5vcmVmaE2IAQGYAQ24AQTIAQTYAQHoAQH4AQs&sid=a149050b7c8eaf6d2215ef481258f3d8&dcid=1&checkin_monthday=27&checkin_year_month=2016-8&checkout_monthday=28&checkout_year_month=2016-8&class_interval=1&csflt=%7B%7D&dest_id=-1435904&dest_type=city&gtt=f8e939381831f2071b045fc435d44207&gtt=f8e939381831f2071b045fc435d44207&gtt=f8e939381831f2071b045fc435d44207&label_click=undef&no_rooms=1&review_score_group=empty&room1=A%2CA&sb_price_type=total&sb_travel_purpose=leisure&score_min=0&si=ai%2Cco%2Cci%2Cre%2Cdi&ss=La%20Fert%C3%A9-Saint-Aubin%2C%20R%C3%A9gion%20Centre%2C%20France&ss_raw=La%20Fert%C3%A9%20s&ssb=empty&order=popularity&track_sr_ajax_click=1">booking.com</a></td>
-    	<td></td>
-    	<td></td>
-    </tr>
-    </table>
+    <div class="card">
+       	<div class="cdc cd-2 left">
+			<span class="bold">Airbnb</span>
+		</div>
+		<div class="cdc cd-6 bold right">40 à 100 €</div>
+		<div class="cdc cd-3 right">
+			<a class="action" href="https://www.airbnb.fr/s/La-Fert%C3%A9~Saint~Aubin?checkin=27%2F08%2F2016&checkout=28%2F08%2F2016&guests=&zoom=11&search_by_map=true&sw_lat=47.61293568120306&sw_lng=1.906714587506599&ne_lat=47.862701482478926&ne_lng=2.230811267194099&ss_id=23vztdjs">Logements sur Airbnb</a>
+		</div>
+		<div class="cdc cd-1 left small">Logez chez l'habitant, avec tout le confort de l'hôtel, 
+			le charme en plus. 200 logements à moins de 30 min de La Ferté Saint Aubin, 
+			pour tous les budgets.</div>
+	</div>
+    <div class="card">
+       	<div class="cdc cd-2 left">
+			<span class="bold">Plus d'hôtels sur Booking.com</span>
+		</div>
+		<div class="cdc cd-6 bold right"></div>
+		<div class="cdc cd-3 right">
+			<a class="action" href="http://www.booking.com/searchresults.fr.html?label=gen173nr-17CAEoggJCAlhYSDNiBW5vcmVmaE2IAQGYAQ24AQTIAQTYAQHoAQH4AQs&sid=a149050b7c8eaf6d2215ef481258f3d8&dcid=1&checkin_monthday=27&checkin_year_month=2016-8&checkout_monthday=28&checkout_year_month=2016-8&class_interval=1&csflt=%7B%7D&dest_id=-1435904&dest_type=city&gtt=f8e939381831f2071b045fc435d44207&gtt=f8e939381831f2071b045fc435d44207&gtt=f8e939381831f2071b045fc435d44207&label_click=undef&no_rooms=1&review_score_group=empty&room1=A%2CA&sb_price_type=total&sb_travel_purpose=leisure&score_min=0&si=ai%2Cco%2Cci%2Cre%2Cdi&ss=La%20Fert%C3%A9-Saint-Aubin%2C%20R%C3%A9gion%20Centre%2C%20France&ss_raw=La%20Fert%C3%A9%20s&ssb=empty&order=popularity&track_sr_ajax_click=1">booking.com</a>
+		</div>
+	</div>
     
     <div id="hotelMap"></div>
 

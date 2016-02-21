@@ -82,12 +82,25 @@ p a:link, p a:visited {
 }
 .white-shadow {
 	color: white;
-	text-shadow: 0 0 10px black;
+	text-shadow: 1px 1px 1px black, 0 0 10px black, 0 0 5px black;
+}
+.inner-shadow {
+	box-shadow: 0px -10px 20px -10px #959595 inset;
+}
+.gray-bkg {
+	background-color: #e0e0e0;
+}
+.blue-bkg {
+	background-color: rgb(2, 120, 156);
+}
+.header-bkg {
+	background-color: rgb(2, 120, 156);
+	background-color: rgba(2, 120, 156, 0.9);
 }
 
 /* General */
 .borders {
-	border-radius: 10px;
+	border-radius: 3px;
 	border: solid 1px #111;
 	padding: 20px;
 }
@@ -97,6 +110,10 @@ hr {border-color: #111;}
 }
 .small {
 	font-size: 90%;
+}
+.large {
+	font-size: 200%;
+	line-height: 150%;
 }
 table {
 	border-collapse: collapse;

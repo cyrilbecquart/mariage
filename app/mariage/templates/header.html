@@ -1,5 +1,5 @@
-<nav id="nav">
-    <a href="{% url 'home' %}" class="logo">Cyril & Géraldine</a>
+<nav id="nav" class="header-bkg">
+    <a href="{% url 'home' %}" class="logo"><img src="{{ STATIC_URL }}img/logo.png" /></a>
     <a href="{% url 'planning' %}" class="{% if 'planning' in request.resolver_match.url_name %}yellow-border{% endif %}">Planning</a>
     <a href="{% url 'ceremony' %}" class="{% if 'ceremony' in request.resolver_match.url_name %}yellow-border{% endif %}">Cérémonie</a>
     <a href="{% url 'housing' %}" class="{% if 'housing' in request.resolver_match.url_name %}yellow-border{% endif %}">Se Loger</a>

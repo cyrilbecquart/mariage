@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <img src="{{ STATIC_URL }}img/save-the-date.jpg" class="home-banner img-responsive" />
-    
     <h1 class="center">Un mariage en Sologne</h1>
+
+    <div class="countdown red center">
+	    <div id="compte_a_rebours">
+	    	<noscript>Rendez-vous le 27 août 2016 à 15h.</noscript>
+		</div>
+    </div>
+
+    <img src="{{ STATIC_URL }}img/save-the-date.jpg" class="home-banner img-responsive" />
+    <img src="{{ STATIC_URL }}img/logo-large.png" class="home-banner img-responsive" style="width: 500px;"/>
+    
+    
+
+
 {% endblock content %}
+{% block additionnal-scripts %}
+	<script type="text/javascript">
+		compte_a_rebours();
+	</script>
+{% endblock additionnal-scripts %}

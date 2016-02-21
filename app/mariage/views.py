@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from app.mariage.models import Hotel, Carpooling
+from app.mariage.models import Hotel, Carpooling, Song
 from app.mariage.forms import CarpoolingAddForm
 
 
@@ -48,13 +48,18 @@ class HousingPageView(LoginRequiredMixin, TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super(HousingPageView, self).get_context_data(**kwargs)
-        context['hotels'] = Hotel.objects.all()
+        context['hotels'] = Hotel.objects.all().order_by('order')
         return context
 
 
 class CeremonyPageView(LoginRequiredMixin, TemplateView):
 
     template_name = "pages/ceremony.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CeremonyPageView, self).get_context_data(**kwargs)
+        context['songs'] = Song.objects.all().order_by('order')
+        return context
 
 
 class VoyagePageView(LoginRequiredMixin, TemplateView):

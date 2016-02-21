@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import url
 from django.contrib.auth.views import login, logout_then_login
 from app.mariage.views import *
@@ -25,3 +26,10 @@ urlpatterns = [
     url(r'^test$', TestPageView.as_view(), name='test'),
 
 ]
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT})
+    ]
