@@ -15,7 +15,7 @@ class HotelAdminForm( forms.ModelForm ):
 # Register your models here.
 class HotelAdmin(admin.ModelAdmin):
     form = HotelAdminForm
-    list_display = ('name', 'email', 'phone', 'website', 'address', 'price_range',)
+    list_display = ('name', 'order', 'price_range','website', )
     #search_fields = ()
     readonly_fields = ('created_by', 'modified_by')
     #list_filter = ('vehicle__active_p', 'administrative_area_one')
