@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, UpdateView, DeleteView
 from app.mariage.models import Hotel, Carpooling, Song
 from app.mariage.forms import CarpoolingAddForm
 
@@ -96,3 +96,23 @@ class CarpoolingFormView(LoginRequiredMixin, FormView):
         form.clean()
         form.save()
         return super(CarpoolingFormView, self).form_valid(form)
+
+
+class CarpoolingEditView(LoginRequiredMixin, UpdateView):
+    template_name = 'forms/carpooling.html'
+    form_class = CarpoolingAddForm
+    model = Carpooling
+    success_url = reverse_lazy('coming')
+
+    def form_valid(self, form):
+        self.object = form.save()
+
+        return super(CarpoolingEditView, self).form_valid(form) 
+    #render_to_response(self.template_name, self.get_context_data())
+
+class CarpoolingDeleteView(LoginRequiredMixin, DeleteView):
+    template_name = 'forms/carpooling_delete.html'
+    model = Carpooling
+    success_url = reverse_lazy('coming')
+
+

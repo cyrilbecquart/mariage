@@ -3,7 +3,10 @@
 {% block title %}Où ?{% endblock title %}
 
 {% block wrapper %}
-<section class="wrapper content">
+<section class="">
+	<img src="{{ STATIC_URL }}img/labyrinthe_2000px.png" class="page-banner"/>
+</section>
+<section class="wrapper top-40">
     <div id="locationsMap"></div>
 
     <h2>Où cela se passe-t-il ?</h2>    
@@ -100,8 +103,12 @@
 		</div>
 		<div class="cdc cd-6"><span class=" fa fa-map-marker"></span><br/>{{ c.departure }}</div>
 		<div class="cdc cd-6"><span class=" fa fa-{%if c.role = "DR" %}car{% else %}user{% endif %}"></span><br/>{{ c.get_role_display }}</div>
-		<div class="cdc cd-6 large bold right">{{ c.places }}</div>
+		<div class="cdc cd-12 large bold right">{{ c.places }}</div>
 		<div class="cdc cd-6 left cd-places">places<br/>{%if c.role = "DR" %}disponibles{% else %}recherchées{% endif %}</div>
+		<div class="cdc cd-12 right cd-places">
+			<a href="{% url "edit_carpooling" c.pk %}"><span class="fa fa-pencil fa-2x"></span></a>&nbsp;
+			<a href="{% url "delete_carpooling" c.pk %}"><span class="fa fa-trash red"></span></a>
+		</div>
 	</div>
 	{% endfor %}
 

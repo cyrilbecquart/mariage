@@ -22,6 +22,8 @@ urlpatterns = [
     
     # forms
     url(r'^coming/add-carpooling$', CarpoolingFormView.as_view(), name='add_carpooling'),
+    url('^coming/edit-carpooling/(?P<pk>[\w-]+)$', CarpoolingEditView.as_view(), name='edit_carpooling'),
+    url('^coming/delete-carpooling/(?P<pk>[\w-]+)$', CarpoolingDeleteView.as_view(), name='delete_carpooling'),
     
     url(r'^test$', TestPageView.as_view(), name='test'),
 

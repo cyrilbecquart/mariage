@@ -149,6 +149,7 @@ input[type='submit'].action {
 	border-radius: 3px;
 	background-color: #ffb400;
 	text-shadow: none;
+	text-align: center;
 	font-weight: bold;
 	font-size: 14px;
 	line-height: 20px;
@@ -167,4 +168,20 @@ input[type='submit'].action:hover {
 .action:visited.snd, 
 input[type='submit'].action.snd {
 	background-color: #02789C;
+}
+.action.snd:hover,
+.action:visited.snd:hover, 
+input[type='submit'].action.snd:hover {
+	background-color: #01607c;
+}
+.action.red,
+.action:visited.red, 
+input[type='submit'].action.red {
+	background-color: #ba2c3a;
+	color: white;
+}
+.action.red:hover,
+.action:visited.red:hover, 
+input[type='submit'].action.red:hover {
+	background-color: #94232e;
 }

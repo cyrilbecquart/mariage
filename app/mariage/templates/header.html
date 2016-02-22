@@ -1,5 +1,29 @@
+<nav class="header-bkg">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars fa-lg white"></span>
+      </button>
+      <a href="{% url 'home' %}" class="logo"><img src="{{ STATIC_URL }}img/logo.png" /></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'planning' %}" class="{% if 'planning' in request.resolver_match.url_name %}yellow-border{% endif %}">Planning</a></li>
+        <li><a href="{% url 'ceremony' %}" class="{% if 'ceremony' in request.resolver_match.url_name %}yellow-border{% endif %}">Cérémonie</a></li>
+        <li><a href="{% url 'housing' %}" class="{% if 'housing' in request.resolver_match.url_name %}yellow-border{% endif %}">Se Loger</a></li>
+        <li><a href="{% url 'coming' %}" class="{% if 'coming' in request.resolver_match.url_name %}yellow-border{% endif %}">Venir</a></li>
+        <li><a href="{% url 'visit' %}" class="{% if 'visit' in request.resolver_match.url_name %}yellow-border{% endif %}">Visiter</a></li>
+    	<li><a href="{% url 'voyage' %}" class="{% if 'voyage' in request.resolver_match.url_name %}yellow-border{% endif %}">Voyage</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% comment %}
 <nav id="nav" class="header-bkg">
-    <a href="{% url 'home' %}" class="logo"><img src="{{ STATIC_URL }}img/logo.png" /></a>
     <a href="{% url 'planning' %}" class="{% if 'planning' in request.resolver_match.url_name %}yellow-border{% endif %}">Planning</a>
     <a href="{% url 'ceremony' %}" class="{% if 'ceremony' in request.resolver_match.url_name %}yellow-border{% endif %}">Cérémonie</a>
     <a href="{% url 'housing' %}" class="{% if 'housing' in request.resolver_match.url_name %}yellow-border{% endif %}">Se Loger</a>
@@ -7,3 +31,4 @@
     <a href="{% url 'visit' %}" class="{% if 'visit' in request.resolver_match.url_name %}yellow-border{% endif %}">Visiter</a>
     <a href="{% url 'voyage' %}" class="{% if 'voyage' in request.resolver_match.url_name %}yellow-border{% endif %}">Voyage</a>
 </nav>
+{% endcomment %}
