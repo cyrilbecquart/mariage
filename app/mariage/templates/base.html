@@ -1,0 +1,51 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}" >
+
+<head>
+	
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<meta name="referrer" content="unsafe-URL">
+<meta name="robots" content="noindex,nofollow"/>
+
+<!--favicons-->
+<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png" type="image/png">
+
+<!--meta-->
+<title>{% block title %}{% endblock title %} Cyril & GG</title>
+<meta name="description" content="{% block metadata-description %}Le site du mariage de Cyril et Géraldine{% endblock metadata-description %}"/>
+
+{% include 'styles.html' %}
+
+</head>
+
+<body id="body">
+
+    <header id="header">
+        {% block header %}{% include "header.html" %}{% endblock header %}
+    </header>
+    <div id="skrollr-body">        	
+    	{% block wrapper %}
+        <div id="wrapper">
+            {% block wrapper-content %}
+            <div id="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            {% endblock wrapper-content %}
+        </div>
+    	{% endblock wrapper %}
+        <footer id="footer" >{% block footer %}{% include 'footer.html' %}{% endblock footer %}</footer>
+    </div>
+
+
+    {% block assets-scripts %}
+        {% include 'scripts.html' %}
+    {% endblock %}
+    {% block additionnal-scripts %}{% endblock additionnal-scripts %}
+
+</body>
+
+</html>

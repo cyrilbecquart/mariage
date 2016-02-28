@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load custom_form_tags %}
+
+{% block title %}Nouveau covoiturage{% endblock title %}
+
+{% block content %}
+<form action="" method="post" class="smallForm centered max400">
+	{% csrf_token %}
+    <h1 class="center">Supprimer ce covoiturage&nbsp;?</h1>
+    {% with object as c %}
+    <div class="card top-40">
+		<div class="cdc cd-1 left bottom-20">
+			<span class="bold">{{ c.name }}</span>
+			<br/>
+			<a href="mailto:{{ c.email }}">{{ c.email }}</a>
+			{% if c.email and c.phone %}/{% endif %}
+			{{ c.phone }}
+		</div>
+		<div class="cdc cd-4"><span class=" fa fa-map-marker"></span><br/>{{ c.departure }}</div>
+		<div class="cdc cd-4"><span class=" fa fa-{%if c.role = "DR" %}car{% else %}user{% endif %}"></span><br/>{{ c.get_role_display }}</div>
+		<div class="cdc cd-5 large bold right">{{ c.places }}</div>
+		<div class="cdc cd-4 left cd-places">places<br/>{%if c.role = "DR" %}disponibles{% else %}recherchées{% endif %}</div>
+	</div>
+	{% endwith %}
+    <input type="submit" value="Supprimer" class="action red" />
+    <p class="center top-20"><a href="{% url 'coming' %}#how-to-come" class="center">Annuler</a></p>
+</form>
+{% endblock content %}

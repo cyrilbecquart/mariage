@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Où ?{% endblock title %}
+
+{% block wrapper %}
+<section class="">
+	<img src="{{ STATIC_URL }}img/labyrinthe_2000px.png" class="page-banner"/>
+</section>
+<section class="wrapper top-40">
+    <div id="locationsMap"></div>
+
+    <h2>Où cela se passe-t-il ?</h2>    
+    <div class="top-20">
+		<img class="locationIcon" src="{{ STATIC_URL}}img/church-icon-green.png" style="margin-top: 39px;" />
+			<div style="display: inline-block;">
+		    <h3>Cérémonie</h3>
+		    <p>
+		    	Eglise : Notre Dame à Ménestreau en villette
+		    	<br/><span class="small">GPS : 
+		    		<a href="https://goo.gl/maps/xo6AriyY4h72" target="blank">47.699065, 2.021684</a></span>
+		    </p>
+		</div>
+    </div>
+    
+    
+    <div>
+	    <img class="locationIcon" src="{{ STATIC_URL}}img/castle-icon-blue.png" />
+	    <div style="display: inline-block;">
+		    <h3>Réception et soirée</h3>
+		    <p>
+		    	Chateau de la Ferté Saint Aubin
+		    	<br/><span class="small">GPS : 
+		    		<a href="https://goo.gl/maps/rVGYU5X48c62" target="blank">47.726278, 1.940727</a>
+		    		<br/>A 5 min en voiture de l'église</span>
+			</p>
+		</div>
+    </div>
+    <div>
+	    <img class="locationIcon" src="{{ STATIC_URL}}img/home-icon-red.png" />
+	    <div style="display: inline-block;">
+		    <h3>Brunch le dimanche</h3>
+		    <p>
+		    	Pavillon du Ramier à Viglain,
+		    	<br/>Chez les parents de Géraldine
+		    	<br/><span class="small">GPS : 
+		    		<a href="https://goo.gl/maps/KZHN7tixs6Q2" target="blank">47.761590, 2.271166</a>
+		    		<br/>A 5 min en voiture du château</span>
+		    </p>
+	    </div>
+    </div>
+    <hr>
+</section>
+
+
+<section class="wrapper">
+    <h2 id="how-to-come" class="top-40">Comment venir ?</h2>
+	
+	<div class="clearfix top-40">
+		<div class="third ">
+			<h3 class="center"><span class="fa fa-car fa-3x red"></span><br/><br/>En voiture</h3>
+			<p class="top-20"><a href="https://goo.gl/maps/cEfhU3n18mo">De Paris</a>, 2 heures par l'A10, direction Orléans</p>
+			<p><a href="https://goo.gl/maps/Ed1n6rMqwJ32">De Lille</a>, 5 heures par l'A1 jusque Paris, puis A10 direction Orléans</p>
+			<p><b>Louer une voiture :</b>
+				<br/><a href="https://www.drivy.com/search?address=Gare+SNCF+de+Fleury+Les+Aubrais%2C+Fleury-les-Aubrais%2C+France&latitude=47.927082&longitude=1.9067219999999452&page=1&city_display_name=Les+Aubrais&country_scope=FR&start_date=2016-07-16&start_time=am&end_date=2016-07-17&end_time=pm&distance=200">
+				Entre particulier sur Drivy</a> 
+				<br/><span class="small">(on ne renie pas 4 ans dans le métier ;) )</span>
+			<br/><a href="https://www.sixt.fr/location-voiture/france/orleans/fleury-les-aubrais">Agence Sixt à Fleury les Aubrais</a>
+		</div>
+		<div class="third ">
+			<h3 class="center"><span class="fa fa-train fa-3x blue"></span><br/><br/>En train</h3>
+			<p class="top-20">Arrivée en gare "Les Aubrais".
+				<br/>Il y a quelques tgv directs de Lille, sinon il faut passer par Paris.</p>
+			<p>1h en TER direct depuis Paris Austerlitz.</p>
+			<p><strong>Prévoir de louer une voiture à Orléans.</strong></p>
+		</div>
+		<div class="third ">
+			<h3 class="center"><span class="fa fa-plane fa-3x yellow"></span>&nbsp;&nbsp;&nbsp;<span class="fa fa-fighter-jet fa-3x yellow"></span><br/><br/>En avion</h3>
+			<p class="top-20">Si si. Je sais que certains ont prévu de venir en avion.
+				<br/><a href="https://goo.gl/maps/RhUKEWFjmp92">L'aéroport du Loiret - Orléans</a> est très acceuillant
+			</p>
+			<p><strong>Pas de location de voiture à l'aéroport, prévoir un covoiturage. <span class="fa fa-arrow-down "></span></strong></p>
+		</div>
+	</div>
+</section>
+
+<section class="wrapper">
+	<h3 class="clear top-40 center bottom-60">
+		<span class="fa fa-car fa-3x"></span> 
+		<span class="fa fa-child fa-3x blue"></span>
+		<span class="fa fa-child fa-3x red"></span>
+		<span class="fa fa-child fa-3x yellow"></span>
+		<br/><br/>En covoiturage
+	</h3>
+	
+	{% for c in carpoolings %}
+	<div class="card">
+		<div class="cdc cd-3 left">
+			<span class="bold">{{ c.name }}</span>
+			<br/>
+			<a href="mailto:{{ c.email }}">{{ c.email }}</a>
+			{% if c.email and c.phone %}/{% endif %}
+			{{ c.phone }}
+		</div>
+		<div class="cdc cd-6"><span class=" fa fa-map-marker"></span><br/>{{ c.departure }}</div>
+		<div class="cdc cd-6"><span class=" fa fa-{%if c.role = "DR" %}car{% else %}user{% endif %}"></span><br/>{{ c.get_role_display }}</div>
+		<div class="cdc cd-12 large bold right">{{ c.places }}</div>
+		<div class="cdc cd-6 left cd-places">places<br/>{%if c.role = "DR" %}disponibles{% else %}recherchées{% endif %}</div>
+		<div class="cdc cd-12 right cd-places">
+			<a href="{% url "edit_carpooling" c.pk %}"><span class="fa fa-pencil fa-2x"></span></a>&nbsp;
+			<a href="{% url "delete_carpooling" c.pk %}"><span class="fa fa-trash red"></span></a>
+		</div>
+	</div>
+	{% endfor %}
+
+	
+	<p class="center top-40 bottom-60">
+		<a class="action right-20" href="{% url 'add_carpooling' %}?role=DR">Proposer un covoiturage</a>
+		<a class="action snd" href="{% url 'add_carpooling' %}?role=PA">Je cherche un covoiturage</a>
+	</p>
+</section>
+{% endblock wrapper %}
+
+{% block additionnal-scripts %}
+<script type="text/javascript">
+	 $(document).ready(function ($) {
+	 	initLocationsMap();
+	 });
+</script>
+{% endblock additionnal-scripts %}

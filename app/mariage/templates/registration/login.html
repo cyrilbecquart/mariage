@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block wrapper-content %}
+<div class="row top-40">
+	<div class="col-md-6">
+		<img src="{{ STATIC_URL }}img/save-the-date.jpg" class="home-banner" />
+	</div>
+	<div class="col-md-6 ">
+		<h1 class="blue">Mariage de <br/>Cyril et Géraldine</h1>
+		<h3 class="top-40">{% trans "Can't wait to tell you more about our plans" %}</h3>
+		<p>{% trans "Le nom d'utilisateur est 'cyril-et-geraldine'." %}
+			<br/>{% trans "Le mot de passe est sur l'invitation jointe au faire-part." %}</p>
+		<form method="post" action="{% url 'login' %}" class="smallForm clearfix top-40">
+		    {{ form.non_field_errors }}
+		    {{form.fieldsx}}
+		    {% csrf_token %}
+		    {% for f in form %}
+			    {% if f.errors %}<span class"small red">{{ f.errors }}</span>{% endif %}
+			    {{ f.label_tag }}
+			    {{ f }}
+		    {% endfor %}
+		    <input type="hidden" name="next" value="{{ next }}" />
+		    <hr>
+		    <input type="submit" value="{% trans "Login" %}" class="action"/>
+		</form>
+	</div>
+</div>
+
+{% endblock wrapper-content %}
+{% block footer %}{% endblock footer %}
