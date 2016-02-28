@@ -2,8 +2,12 @@
 
 {% block title %}Où loger ?{% endblock title %}
 
-{% block content %}
-    <h1 class="center bottom-60"><span class="fa fa-hotel fa-3x red"></span><br/>Où loger ?</h1>
+{% block wrapper %}
+<section class="">
+	<img src="{{ STATIC_URL }}img/minecraft-night.jpg" style="width:100%;" />
+</section>
+<section class="wrapper top-20">
+    <h1 class="center bottom-20">Où loger ?</h1>
     
     {% for hotel in hotels %}
     <div class="card" 
@@ -46,8 +50,8 @@
 	</div>
     
     <div id="hotelMap"></div>
-
-{% endblock content %}
+</section>
+{% endblock wrapper %}
 
 {% block additionnal-scripts %}
 <script type="text/javascript">

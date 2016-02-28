@@ -28,7 +28,8 @@ SECRET_KEY = 'd6(g*i49e7kf-(a97&kp-jutx+k$57z*y^*j0!no(_ryfj4p&a'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CATCHALL_REDIRECT_HOSTNAME = 'www.geraldine-cyril.com'
+REMOVE_WWW = False
 
 # Application definition
 
@@ -39,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'sass_processor',
     'app.mariage',
 )
 
