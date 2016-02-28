@@ -55,6 +55,10 @@
 			<td>{% if song.tenor %}<a href="{{ song.tenor.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a>{% endif %}</td>
 			<td>{% if song.basse %}<a href="{{ song.basse.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a>{% endif %}</td>
 		</tr>
+		{% empty %}
+		<tr>
+			<td class="center" colspan="9">Bientôt ici les partitions et mp3 des chants de la cérémonie !</td>
+		</tr>
 		{% endfor %}
 	</table>
 </section>
