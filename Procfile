@@ -1,1 +1,1 @@
-web: gunicorn mariage.wsgi
+web: gunicorn mariage.wsgi --log-file -
