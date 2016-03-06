@@ -1,6 +1,10 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- parallax -->
 <script type="text/javascript" src="{{ STATIC_URL }}js/skrollr.js"></script>
+<!-- responsive parallax -->
+<script src="{{ STATIC_URL }}js/enquire.js/dist/enquire.min.js"></script>
+
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="{{ STATIC_URL }}bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
@@ -9,6 +13,61 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?api_key=AIzaSyCsYBuLST49rw269nMM-tuV3CeHJNV0xgw"></script>
 
+<script type="text/javascript">
+	function adjustWindow(){
+	     
+	    // Get window size
+	    winH = $(window).height();
+	    winW = $(window).width();
+	     
+	    // Keep minimum height 550
+	    if(winH <= 550) {
+	        winH = 550;
+	    }
+	     
+	    // Init Skrollr for 768 and up
+	    if( winW >= 768) {
+	 
+	        // Init Skrollr
+	        var s = skrollr.init({
+	            forceHeight: false
+	        });
+
+	        // Resize our slides
+	        $('.slide').height(winH);
+	 
+	        s.refresh($('.homeSlide'));
+	 
+	    } else {
+	 
+	        // Init Skrollr
+	        var s = skrollr.init();
+	        s.destroy();
+	    }
+	 
+	    // Check for touch
+	    if(Modernizr.touch) {
+	 
+	        // Init Skrollr
+	        var s = skrollr.init();
+	        s.destroy();
+	    }
+	 
+	}
+	function initAdjustWindow() {
+	    return {
+	        match : function() {
+	            adjustWindow();
+	        },
+	        unmatch : function() {
+	            adjustWindow();
+	        }
+	    };
+	}
+	 
+	enquire.register("screen and (min-width : 768px)", initAdjustWindow(), false);
+</script>
+{% comment %}
 <script type="text/javascript">
 	( function( $ ) {
 	    // Init Skrollr
@@ -20,3 +79,4 @@
 	    });
 	} )( jQuery );
 </script>
+{% endcomment %}

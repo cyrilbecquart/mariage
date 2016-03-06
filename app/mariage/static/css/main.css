@@ -133,6 +133,7 @@ nav a.logo {
 	max-width: 400px;
 	margin: 0 auto 20px;
 	display: block;
+	width: 100%;
 }
 .countdown {
 	width: 100%;
@@ -154,21 +155,27 @@ nav a.logo {
 	margin: 40px 10%;
 	border: solid 1px #959595;
 }
-
+.hPrice {
+	text-align: right;
+}
+	
 /* Coming */
 #locationsMap {
 	float: right;
-	width: 50%;
+	width: 100%;
 	height: 400px;
 	border: solid 1px #959595;
 	margin-top: 20px;
 }
 .locationIcon {
-	float: left;
+	position: absolute;
 	width: 48px;
 	height: 48px;
 	margin-right: 10px;
     margin-top: 50px;
+}
+.locationIcon + div {
+	margin-left: 60px;
 }
 
 /* Forms */
@@ -367,6 +374,10 @@ nav a.logo {
 	#wrapper, .wrapper {
 		margin: 0 10px;
 	}
+	.page-banner {
+		width: 100%;
+		padding: 20px 0 0 0;
+	}
 }
 @media (max-width: 900px) {
 	nav li > a:link, nav li > a:visited {
@@ -389,6 +400,14 @@ nav a.logo {
 	.card {
 		padding: 10px 20px;
 	}
+	.xs-center {
+		text-align:center;
+	}
+	#locationsMap {
+		height: 200px;
+		margin: 0 auto 20px;
+		display: block;
+	}
 }
 @media (max-width: 500px) {
 	.card {
@@ -402,5 +421,40 @@ nav a.logo {
 	}
 	.cdc.cd-6 {
 		width: 33%;
+	}
+	.cdc.cd-12 {
+		width: 12%;
+	}
+	.cdc.cd-12.cd-places {
+		width: 15%;
+	}
+	.hPrice {
+		text-align: left;
+		font-size: 130%;
+	}
+	.page-banner {
+		padding-top: 40px;
+	}
+	.third {
+		width: 100%;
+		padding: 0 2%;
+		float: none;
+	}
+	.xs-left {
+		text-align: left;
+	}
+	.xs-right {
+		text-align: right;
+	}
+	.xs-none {
+		display: none;
+	}
+	.cd-places {
+		padding-left: 5px;
+	}
+	p.center .action {
+		display: block;
+		margin: 0;
+		margin-bottom: 10px;
 	}
 }

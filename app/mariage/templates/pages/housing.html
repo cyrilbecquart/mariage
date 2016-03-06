@@ -17,7 +17,7 @@
 			<span class="bold">{{ forloop.counter }} - {{ hotel.name }}</span>
 			<br/>{{ hotel.address|linebreaksbr }}
 		</div>
-		<div class="cdc cd-6 bold right"><br/>{{ hotel.price_range }}</div>
+		<div class="cdc cd-6 bold hPrice"><br/>{{ hotel.price_range }}</div>
 		<div class="cdc cd-3 right">
     		{% if hotel.phone %}{{ hotel.phone }}<br/>{% endif %}
     		{% if hotel.email %}<a href="mailto:{{ hotel.email }}">{{ hotel.email }}</a><br/>{% endif %}

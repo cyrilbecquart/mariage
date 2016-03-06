@@ -6,47 +6,50 @@
 <section class="gray-bkg">
 	<img src="{{ STATIC_URL }}img/labyrinthe_1150px.png" class="page-banner"/>
 </section>
-<section class="wrapper top-40">
-    <div id="locationsMap"></div>
-
-    <h2>Où cela se passe-t-il ?</h2>    
-    <div class="top-20">
-		<img class="locationIcon" src="{{ STATIC_URL}}img/church-icon-green.png" style="margin-top: 39px;" />
-			<div style="display: inline-block;">
-		    <h3>Cérémonie</h3>
-		    <p>
-		    	Eglise : Notre Dame à Ménestreau en villette
-		    	<br/><span class="small">GPS : 
-		    		<a href="https://goo.gl/maps/xo6AriyY4h72" target="blank">47.699065, 2.021684</a></span>
-		    </p>
-		</div>
-    </div>
-    
-    
-    <div>
-	    <img class="locationIcon" src="{{ STATIC_URL}}img/castle-icon-blue.png" />
-	    <div style="display: inline-block;">
-		    <h3>Réception et soirée</h3>
-		    <p>
-		    	Chateau de la Ferté Saint Aubin
-		    	<br/><span class="small">GPS : 
-		    		<a href="https://goo.gl/maps/rVGYU5X48c62" target="blank">47.726278, 1.940727</a>
-		    		<br/>A 5 min en voiture de l'église</span>
-			</p>
-		</div>
-    </div>
-    <div>
-	    <img class="locationIcon" src="{{ STATIC_URL}}img/home-icon-red.png" />
-	    <div style="display: inline-block;">
-		    <h3>Brunch le dimanche</h3>
-		    <p>
-		    	Pavillon du Ramier à Viglain,
-		    	<br/>Chez les parents de Géraldine
-		    	<br/><span class="small">GPS : 
-		    		<a href="https://goo.gl/maps/KZHN7tixs6Q2" target="blank">47.761590, 2.271166</a>
-		    		<br/>A 5 min en voiture du château</span>
-		    </p>
+<section class="wrapper">
+    <div class="row">
+		<div class="col-sm-6">
+		    <h2>Où cela se passe-t-il ?</h2>    
+		    <div class="top-20">
+				<img class="locationIcon" src="{{ STATIC_URL}}img/church-icon-green.png" style="margin-top: 39px;" />
+					<div style="display: inline-block;">
+				    <h3>Cérémonie</h3>
+				    <p>
+				    	Eglise : Notre Dame à Ménestreau en villette
+				    	<br/><span class="small">GPS : 
+				    		<a href="https://goo.gl/maps/xo6AriyY4h72" target="blank">47.699065, 2.021684</a></span>
+				    </p>
+				</div>
+		    </div>
+		    <div>
+			    <img class="locationIcon" src="{{ STATIC_URL}}img/castle-icon-blue.png" />
+			    <div style="display: inline-block;">
+				    <h3>Réception et soirée</h3>
+				    <p>
+				    	Chateau de la Ferté Saint Aubin
+				    	<br/><span class="small">GPS : 
+				    		<a href="https://goo.gl/maps/rVGYU5X48c62" target="blank">47.726278, 1.940727</a>
+				    		<br/>A 5 min en voiture de l'église</span>
+					</p>
+				</div>
+		    </div>
+		    <div>
+			    <img class="locationIcon" src="{{ STATIC_URL}}img/home-icon-red.png" />
+			    <div style="display: inline-block;">
+				    <h3>Brunch le dimanche</h3>
+				    <p>
+				    	Pavillon du Ramier à Viglain,
+				    	<br/>Chez les parents de Géraldine
+				    	<br/><span class="small">GPS : 
+				    		<a href="https://goo.gl/maps/KZHN7tixs6Q2" target="blank">47.761590, 2.271166</a>
+				    		<br/>A 5 min en voiture du château</span>
+				    </p>
+			    </div>
+		    </div>
 	    </div>
+    	<div class="col-sm-6">
+		    <div id="locationsMap"></div>
+		</div>
     </div>
     <hr>
 </section>
@@ -98,16 +101,16 @@
 			<span class="bold">{{ c.name }}</span>
 			<br/>
 			<a href="mailto:{{ c.email }}">{{ c.email }}</a>
-			{% if c.email and c.phone %}/{% endif %}
+			{% if c.email and c.phone %}<span class="xs-none">/</span>{% endif %}
 			{{ c.phone }}
 		</div>
-		<div class="cdc cd-6"><span class=" fa fa-map-marker"></span><br/>{{ c.departure }}</div>
-		<div class="cdc cd-6"><span class=" fa fa-{%if c.role = "DR" %}car{% else %}user{% endif %}"></span><br/>{{ c.get_role_display }}</div>
+		<div class="cdc cd-6 xs-right"><span class=" fa fa-map-marker"></span><br/>{{ c.departure }}</div>
+		<div class="cdc cd-6 xs-left"><span class=" fa fa-{%if c.role = "DR" %}car{% else %}user{% endif %}"></span><br/>{{ c.get_role_display }}</div>
 		<div class="cdc cd-12 large bold right">{{ c.places }}</div>
 		<div class="cdc cd-6 left cd-places">places<br/>{%if c.role = "DR" %}disponibles{% else %}recherchées{% endif %}</div>
 		<div class="cdc cd-12 right cd-places">
 			<a href="{% url "edit_carpooling" c.pk %}"><span class="fa fa-pencil fa-2x"></span></a>&nbsp;
-			<a href="{% url "delete_carpooling" c.pk %}"><span class="fa fa-trash red"></span></a>
+			<a href="{% url "delete_carpooling" c.pk %}" class="xs-none"><span class="fa fa-trash red"></span></a>
 		</div>
 	</div>
 	{% empty %}
