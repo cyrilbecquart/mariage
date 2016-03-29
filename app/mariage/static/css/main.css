@@ -336,8 +336,10 @@ nav a.logo {
 .page-banner {
 	margin: 0 auto 60px;
 	display: block;
-	padding-left: 165px;
 	padding-top: 20px;
+}
+.page-banner.left {
+	padding-left: 165px;
 }
 
 /* Parallax */
@@ -374,7 +376,7 @@ nav a.logo {
 	#wrapper, .wrapper {
 		margin: 0 10px;
 	}
-	.page-banner {
+	.page-banner, .page-banner.left {
 		width: 100%;
 		padding: 20px 0 0 0;
 	}
