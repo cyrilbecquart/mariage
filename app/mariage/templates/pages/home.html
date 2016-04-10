@@ -1,21 +1,56 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <h1 class="center">Notre mariage en Sologne</h1>
+{% block title %}Accueil{% endblock title %}
 
-    <div class="countdown red center">
-	    <div id="compte_a_rebours">
-	    	<noscript>Rendez-vous le 27 août 2016 à 15h.</noscript>
-		</div>
+{% block wrapper %}
+<section id="slide-1" class="homeSlide" style="height: 600px;">
+    <div class="bcg"
+        data-center="background-position: 50% 0px;"
+        data-top-bottom="background-position: 50% -150px;"
+        data-anchor-target="#slide-1"
+    >
+        <div class="hsContainer">
+            <div class="hsContent home1"
+                data-center="opacity: 1"
+                data--200-top="opacity: 0"
+                data-anchor-target="#slide-1 h1"
+            >
+				<h1 class="white-shadow">Notre mariage en Sologne</h1>
+			    <div class="countdown center white-shadow">
+				    <div id="compte_a_rebours" class="clearfix">
+				    	<noscript>Rendez-vous le 27 août 2016 à 15h.</noscript>
+					</div>
+			    </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <img src="{{ STATIC_URL }}img/logo-large.png" class="home-banner img-responsive" style="width: 500px;"/>
-    <img src="{{ STATIC_URL }}img/save-the-date-small.jpg" class="home-banner img-responsive" />
-    
-    
+<section id="slide-2">
+    <div class="bcg" data-anchor-target="#slide-2">
+        <div class="hsContainer">
+            <div class="hsContent"
+            	data--100-bottom="opacity: 0.3"
+                data-center="opacity: 1"
+                data-50-top="opacity: 1"
+                data--200-top="opacity: 0"
+                data-anchor-target="#slide-2 h2"
+            >
+				<p><a class="action center large" href="{% url 'planning' %}">Découvrir le programme</a></p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section id="slide-3" class="homeSlide" style="height: 500px;">
+    <div class="bcg"
+        data-center="background-position: 50% 0px;"
+        data-top-bottom="background-position: 50% -150px;"
+        data-anchor-target="#slide-3"
+    ></div>
+</section>
+{% endblock wrapper %}
 
-{% endblock content %}
 {% block additionnal-scripts %}
 	<script type="text/javascript">
 		compte_a_rebours();

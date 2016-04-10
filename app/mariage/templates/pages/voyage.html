@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Voyage{% endblock title %}
+
 {% block wrapper %}
 <section id="slide-1" class="voyageSlide" style="height: 700px;">
 	<div class="bcg">
@@ -9,11 +11,14 @@
 		    	<h2 class="white-shadow">
 		    		Proposez nous votre destination de rêve ! 
 		    		<br/>Exotique, neige ou soleil, ville ou nature... 
+	    			<br/><br/><img src="{{ STATIC_URL }}img/Image-voyage-200px.png" class="voyage-img"/>
 		    		<br/><br/>Que souhaitez vous nous faire découvrir ?
 		    	</h2>
-		    	<a class="action" href="http://www.millemercismariage.com/cyril-geraldine" target="_blank">
-		    		Contribuer au voyage
-		    	</a>
+		    	<p>
+		    		<a class="action" href="http://www.millemercismariage.com/cyril-geraldine" target="_blank">
+			    		Contribuer au voyage
+			    	</a>
+		    	</p>
 	        </div>
 	    </div>
 	</div>	

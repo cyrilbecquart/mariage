@@ -1,62 +1,101 @@
 {% extends 'base.html' %}
 
+{% block title %}Messe{% endblock title %}
+
 {% block wrapper %}
 <section class="content">
 	<p class="center">
 		<img src="{{ STATIC_URL }}img/alliances_petits_ronds.png">
-		<span class="bold">Quelle alliance est la plus grande ?</span>
+		<span class="bold ceremony-text">Quelle alliance est la plus grande ?</span>
 		<img src="{{ STATIC_URL }}img/alliances_grands_ronds.png">
 	</p>
 </section>
 <section class="wrapper-small bottom-20">
 	<h2 class="top-40">Le célébrant</h2>
 	<img src="{{ STATIC_URL }}img/serge.jpg" class="round-thumbnail">
-	<p>C'est le père Serge Gougbèmon, sscc. qui célébrera notre mariage.</p>
-	<p>Chef de choeur de 
-		la chorale Pic'Pulse dans laquelle nous chantons du gospel, 
+	<p>
+		C'est le père Serge Gougbèmon, sscc. qui célébrera notre mariage.
+	</p>
+	<p>
+		Chef de choeur de
+		la chorale Pic'Pulse dans laquelle nous chantons du gospel,
 		il est également père de la congrégation des sacrés coeurs de Jésus et de Marie, dit "de Picpus",
-		aumônier du réseau picpus, Béninois, et professeur de philosophie à la Catho de Paris.</p>
+		aumônier du réseau picpus, Béninois, et professeur de philosophie à la Catho de Paris.
+	</p>
 
 	<img src="{{ STATIC_URL }}img/eglise.jpg" class="planning-img right">
 	<h2 class="top-40">Notre Dame de Ménestreau-en-Villette</h2>
-	<p>Le choeur actuel de l'église date du 13ème siècle. Le clocher et la chapelle de la vierge 
-		furent ajoutée au 15ème siècle, la nef au 16ème siècle. 
-		Les derniers aggrandissements datent du 19ème siècle.</p>
-	<p>Ne ratez pas les fresques du 13ème siècle peintes sur le plafond du choeur, et récemment restaurées.</p>
-	<p class="bold"><br/>Rendez-vous à 15h pour la célébration.</p>
-	<p class="bold">Où dès 14h pour répéter <a href="#songs">les chants</a>.</p>
+	<p>
+		Le choeur actuel de l'église date du 13ème siècle. Le clocher et la chapelle de la vierge
+		furent ajoutée au 15ème siècle, la nef au 16ème siècle.
+		Les derniers agrandissements datent du 19ème siècle.
+	</p>
+	<p class="bottom-20">
+		Ne ratez pas les fresques du 13ème siècle peintes sur le plafond du choeur, et récemment restaurées.
+	</p>
+	<p class="bold bottom-20">
+		<span class="label">13 h 30</span> Répétition des <a href="#songs">chants</a> 
+	</p>
+	<p class="bold bottom-20">
+		<span class="label">15 h 00</span> Célébration
+	</p>
 </section>
 
 <section>
-	<img src="{{ STATIC_URL }}img/deiss3.jpg" style="width:100%;"/>
+	<img src="{{ STATIC_URL }}img/partition.jpg" style="width:100%;"/>
 </section>
 
 <section class="wrapper bottom-60">
 	<h2 id="songs" class="top-40">Marions-nous, en chantant</h2>
-	<p>Cette année, nous chantons dans 2 chorales&nbsp;:</p>
+	<p>
+		Cette année, nous chantons dans 2 chorales&nbsp;:
+	</p>
 	<ul>
-		<li><a href="http://reseau-picpus.com/picpulse/vous-avez-dit-picpulse" target="_blank">Pic'Pulse</a>, un choeur Gospel de 150 choristes dont Cyril est l'un des responsables.</li>
-		<li>Le Choeur Lucien Deiss, avec laquelle nous avons enregistré un CD de chants sacrés en février.</li>
-	</ul> 
-	<p>Vous l'aurez compris, chez nous la prière passe beaucoup par le chant.</p>
-	<p>Et comme plus on est de fous, plus on rit (moins il y a de riz?), 
-		vous êtes tous conviés à télécharger les chants et les partitions 
-		ci-dessous et à les répéter.</p>
-	<p>Chanteurs et musiciens, si vous souhaitez mettre l'ambiance pendant la célébration, <a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">écrivez-nous</a>.
-		<br/>Si vous ne savez pas quelle voix chanter, <a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">écrivez-nous aussi</a> !</p>
-		
+		<li>
+			<a href="http://reseau-picpus.com/picpulse/vous-avez-dit-picpulse" target="_blank">Pic'Pulse</a>, un choeur Gospel de 150 choristes dont Cyril est l'un des responsables.
+		</li>
+		<li>
+			Le Choeur Lucien Deiss, avec laquelle nous avons enregistré un CD de chants sacrés en février.
+		</li>
+	</ul>
+	<p>
+		Vous l'aurez compris, chez nous la prière passe beaucoup par le chant.
+	</p>
+	<p>
+		Et comme plus on est de fous, plus on rit (moins il y a de riz?),
+		vous êtes tous conviés à télécharger les chants et les partitions
+		ci-dessous et à les répéter.
+	</p>
+	<p>
+		Chanteurs et musiciens, si vous souhaitez mettre l'ambiance pendant la célébration, <a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">écrivez-nous</a>.
+		<br/>
+		Si vous ne savez pas quelle voix chanter, <a href="mailto:cyril.geraldine.2016@gmail.com" target="_blank">écrivez-nous aussi</a> !
+	</p>
+
 	<table class="hotels songs">
 		{% for song in songs %}
 		<tr>
 			<td class="yellow bold">{{ song.order }}</td>
 			<td>{{ song.when }}</td>
 			<td class="bold">{{ song.name }}</td>
-			<td>{% if song.partition %}<a href="{{ song.partition.url }}" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><br/>Partition</a>{% endif %}</td>
-			<td>{% if song.four_voice %}<a href="{{ song.four_voice.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>4 voix</a>{% endif %}</td>
-			<td>{% if song.soprane %}<a href="{{ song.soprane.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Soprane</a>{% endif %}</td>
-			<td>{% if song.alto %}<a href="{{ song.alto.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Alto</a>{% endif %}</td>
-			<td>{% if song.tenor %}<a href="{{ song.tenor.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Ténor</a>{% endif %}</td>
-			<td>{% if song.basse %}<a href="{{ song.basse.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span><br/>Basse</a>{% endif %}</td>
+			<td>{% if song.partition %}<a href="{{ song.partition.url }}" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+			<br/>
+			Partition</a>{% endif %}</td>
+			<td>{% if song.four_voice %}<a href="{{ song.four_voice.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			<br/>
+			4 voix</a>{% endif %}</td>
+			<td>{% if song.soprane %}<a href="{{ song.soprane.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			<br/>
+			Soprane</a>{% endif %}</td>
+			<td>{% if song.alto %}<a href="{{ song.alto.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			<br/>
+			Alto</a>{% endif %}</td>
+			<td>{% if song.tenor %}<a href="{{ song.tenor.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			<br/>
+			Ténor</a>{% endif %}</td>
+			<td>{% if song.basse %}<a href="{{ song.basse.url }}" target="_blank"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			<br/>
+			Basse</a>{% endif %}</td>
 		</tr>
 		{% empty %}
 		<tr>

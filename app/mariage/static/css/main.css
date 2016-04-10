@@ -138,14 +138,32 @@ nav a.logo {
 .countdown {
 	width: 100%;
 	max-width: 600px;
-	margin: 40px auto;
-	border: solid 2px #02789C; /* 02789C ffb400 */
-	border-radius: 3px;
+	margin: 20px auto 0;
 	text-align: center;
-	padding: 20px;
 	font-weight: bold;
-	font-size: 150%;
+	color: white;
 }
+#compte_a_rebours > span {
+	display: inline-block;
+	padding: 10px 5px;
+	border: solid 1px white;
+	margin: 0 2px;
+	min-width: 56px;
+	width: 23%;
+	font-size: 150%;
+	background-color: none;
+	background-color: rgba(2, 120, 156, 0.6);
+}
+#compte_a_rebours .cd-word {
+	font-size: 50%;
+	line-height: 14px;
+}
+.hsContent.home1 {
+	padding-bottom: 2.5%;
+	vertical-align: bottom;
+}
+#slide-1.homeSlide .bcg {background-image:url('../img/yosemite.jpg')}
+#slide-3.homeSlide .bcg {background-image:url('../img/save-the-date-small.jpg')}
 
 /* Housing */
 
@@ -243,6 +261,10 @@ nav a.logo {
 }
 
 /* Planning */
+.hsContent.planning1 {
+	padding-bottom: 10%;
+	vertical-align: bottom;
+}
 .planning-img {
 	float: left;
 	margin-right: 20px;
@@ -272,13 +294,13 @@ nav a.logo {
     background-color: white;
     padding: 30px 0;
 }
-#slide-1.homeSlide .bcg {background-image:url('../img/balancoire.jpg')}
-#slide-3.homeSlide .bcg {background-image:url('../img/chorale.jpg')}
-#slide-5.homeSlide .bcg {background-image:url('../img/eglise2.jpg')}
-#slide-7.homeSlide .bcg {background-image:url('../img/chateau-teaser.jpg')}
-#slide-9.homeSlide .bcg {background-image:url('../img/rock.jpg')}
-#slide-11.homeSlide .bcg {background-image:url('../img/ramier.jpg')}
-#slide-13.homeSlide .bcg {background-image:url('../img/chambord.jpg')}
+#slide-1.planningSlide .bcg {background-image:url('../img/balancoire.jpg')}
+#slide-3.planningSlide .bcg {background-image:url('../img/chorale.jpg')}
+#slide-5.planningSlide .bcg {background-image:url('../img/eglise2.jpg')}
+#slide-7.planningSlide .bcg {background-image:url('../img/chateau-teaser.jpg')}
+#slide-9.planningSlide .bcg {background-image:url('../img/rock.jpg')}
+#slide-11.planningSlide .bcg {background-image:url('../img/ramier.jpg')}
+#slide-13.planningSlide .bcg {background-image:url('../img/chambord.jpg')}
 
 
 
@@ -297,6 +319,7 @@ nav a.logo {
 	border-top: solid 1px #111;
 	border-bottom: solid 1px #111;
 	margin-top: 40px;
+	margin-bottom: 20px;
 	width: 100%;
 }
 .songs td,
@@ -325,6 +348,12 @@ nav a.logo {
 
 /* Voyage */
 #slide-1.voyageSlide .bcg {background-image:url('../img/voyage.jpg')}
+
+.voyage-img {
+	border-radius: 50%;
+	background-color: white;
+	background-color: rgba(255, 255, 255, 0.6);
+}
 
 /* images */
 .round-thumbnail {
@@ -410,8 +439,18 @@ nav a.logo {
 		margin: 0 auto 20px;
 		display: block;
 	}
+	.ceremony-text {
+		display: none;
+	}
 }
 @media (max-width: 500px) {
+	.hsContent {
+		padding: 0 4%;
+	}
+	h1, .h1-like {
+		font-size: 28px;
+		line-height:32px;
+	}
 	.card {
 		padding: 5px 10px;
 	}
@@ -458,5 +497,18 @@ nav a.logo {
 		display: block;
 		margin: 0;
 		margin-bottom: 10px;
+	}
+	.planning-img.right {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		float: none;
+	}
+}
+
+@media (max-height: 600px) {
+	.hsContent.home1 {
+		padding-bottom: 18%;
+		vertical-align: bottom;
 	}
 }
