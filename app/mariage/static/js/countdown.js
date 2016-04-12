@@ -53,5 +53,5 @@ function compte_a_rebours()
 		compte_a_rebours.innerHTML = "Rdv à l'église";
 	}
 
-	//var actualisation = setTimeout("compte_a_rebours();", 1000);
+	var actualisation = setTimeout("compte_a_rebours();", 1000);
 }
