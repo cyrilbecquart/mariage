@@ -75,7 +75,6 @@
 	<table class="hotels songs">
 		{% for song in songs %}
 		<tr>
-			<td class="yellow bold">{{ song.order }}</td>
 			<td>{{ song.when }}</td>
 			<td class="bold">{{ song.name }}</td>
 			<td>{% if song.partition %}<a href="{{ song.partition.url }}" target="_blank"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>

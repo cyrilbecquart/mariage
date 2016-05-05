@@ -137,6 +137,7 @@ class Song(AuditedModel):
     order = models.IntegerField(_(u'Order'), null=True, blank=True, 
                                  validators=[MinValueValidator(1)],
                                  help_text=_(u'Order during ceremony.'))
+    active = models.BooleanField(_(u'Active'), default=True)
     partition = models.FileField(_(u'Music sheet'), blank=True, upload_to=("songs"))
     four_voice = models.FileField(_(u'4 voices'), blank=True, upload_to=("songs"))
     soprane = models.FileField(_(u'soprane'), blank=True, upload_to=("songs"))

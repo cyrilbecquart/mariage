@@ -58,7 +58,7 @@ class CeremonyPageView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(CeremonyPageView, self).get_context_data(**kwargs)
-        context['songs'] = Song.objects.all().order_by('order')
+        context['songs'] = Song.objects.filter(active=True).order_by('order')
         return context
 
 
