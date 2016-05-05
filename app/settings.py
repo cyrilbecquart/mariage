@@ -122,14 +122,14 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-'''
+
 AWS_STORAGE_BUCKET_NAME = "mariage-cyril-et-gg"
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 MEDIA_URL = "https://%s.s3.amazonaws.com/" % os.environ['AWS_STORAGE_BUCKET_NAME']
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'media'
 AWS_ACCESS_KEY_ID = "AKIAJ46DQHJZ2UCNHYMQ"
 AWS_SECRET_ACCESS_KEY = "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"
-'''
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
